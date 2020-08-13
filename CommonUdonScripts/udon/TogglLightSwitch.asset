@@ -1,0 +1,1312 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
+  m_Name: TogglLightSwitch
+  m_EditorClassIdentifier: 
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 56ace90b8a5d46c4dbb3cb10e13c3a9f,
+    type: 2}
+  udonAssembly: ".data_start\n\n    .export Light\n    .export LightONIntensity\n
+    \   .export LightOFFIntensity\n    .export ON_Swittch\n    .export OFF_Switch\n\n
+    \   __refl_const_intnl_udonTypeID: %SystemInt64, null\n    __refl_const_intnl_udonTypeName:
+    %SystemString, null\n    OFF_Switch: %UnityEngineGameObject, null\n    ON_Swittch:
+    %UnityEngineGameObject, null\n    Light: %UnityEngineLight, null\n    LightOFFIntensity:
+    %SystemSingle, null\n    LightONIntensity: %SystemSingle, null\n    isSwitchedOn:
+    %SystemBoolean, null\n    __0_const_intnl_SystemBoolean: %SystemBoolean, null\n
+    \   __1_const_intnl_SystemBoolean: %SystemBoolean, null\n    __0_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\n    __1_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\n\n.data_end\n\n
+    \       \n         # using UdonSharp;\n        \n         # using UnityEngine;\n
+    \       \n         # using VRC.SDKBase;\n        \n         # using VRC.Udon;\n
+    \       \n         # using VRC.SDK3.Components;\n        \n         # namespace
+    aki_lua87.UdonScripts.Common\n        \n         # [AddComponentMenu(\"aki_lua87/UdonScripts/TogglLightSwitch\")]\n
+    \       \n         # public class TogglLightSwitch : UdonSharpBehaviour\n.code_start\n
+    \       \n         # private bool isSwitchedOn = true;\n        \n         # [SerializeField]
+    private Light Light;\n        \n         # [SerializeField] private float LightONIntensity;
+    // ex. 0.06\n        \n         # [SerializeField] private float LightOFFIntensity;
+    // ex. 0.4\n        \n         # [SerializeField] private GameObject ON_Swittch;\n
+    \       \n         # [SerializeField] private GameObject OFF_Switch;\n        \n
+    \        # public override void Interact()\n    .export _interact\n        \n
+    \   _interact:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n        \n
+    \        # {\n        \n         # if(isSwitchedOn)\n        PUSH, isSwitchedOn\n
+    \       JUMP_IF_FALSE, 0x00000030\n        \n         # {\n        \n         #
+    SwitchOFF();\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\n        JUMP,
+    0x000000D4\n        JUMP, 0x00000040\n        \n         # }else{\n        \n
+    \        # SwitchON();\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\n        JUMP,
+    0x0000005C\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    private void SwitchON()\n    SwitchON:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # Light.intensity = LightONIntensity;\n
+    \       PUSH, Light\n        PUSH, LightONIntensity\n        EXTERN, \"UnityEngineLight.__set_intensity__SystemSingle__SystemVoid\"\n
+    \       \n         # ON_Swittch.SetActive(false);\n        PUSH, ON_Swittch\n
+    \       PUSH, __0_const_intnl_SystemBoolean\n        EXTERN, \"UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid\"\n
+    \       \n         # OFF_Switch.SetActive(true);\n        PUSH, OFF_Switch\n        PUSH,
+    __1_const_intnl_SystemBoolean\n        EXTERN, \"UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid\"\n
+    \       \n         # isSwitchedOn = true;\n        PUSH, __1_const_intnl_SystemBoolean\n
+    \       PUSH, isSwitchedOn\n        COPY\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n        \n         # private void SwitchOFF()\n    SwitchOFF:\n        \n
+    \       PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n        \n
+    \        # Light.intensity = LightOFFIntensity;\n        PUSH, Light\n        PUSH,
+    LightOFFIntensity\n        EXTERN, \"UnityEngineLight.__set_intensity__SystemSingle__SystemVoid\"\n
+    \       \n         # ON_Swittch.SetActive(true);\n        PUSH, ON_Swittch\n        PUSH,
+    __1_const_intnl_SystemBoolean\n        EXTERN, \"UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid\"\n
+    \       \n         # OFF_Switch.SetActive(false);\n        PUSH, OFF_Switch\n
+    \       PUSH, __0_const_intnl_SystemBoolean\n        EXTERN, \"UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid\"\n
+    \       \n         # isSwitchedOn = false;\n        PUSH, __0_const_intnl_SystemBoolean\n
+    \       PUSH, isSwitchedOn\n        COPY\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n.code_end\n"
+  assemblyError: 
+  sourceCsScript: {fileID: 11500000, guid: a5f0eb84f85413240be71ef084523cdc, type: 3}
+  behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
+  compileErrors: []
+  debugInfo:
+    serializedDebugSpans:
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 0
+      endSourceChar: 0
+      line: 0
+      lineChar: 0
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 0
+      endSourceChar: 0
+      line: 0
+      lineChar: 0
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 0
+      endSourceChar: 6
+      line: 0
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 6
+      endSourceChar: 17
+      line: 0
+      lineChar: 6
+      spanCodeSection: 'UdonSharp;
+
+'
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 17
+      endSourceChar: 23
+      line: 1
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 23
+      endSourceChar: 36
+      line: 1
+      lineChar: 6
+      spanCodeSection: 'UnityEngine;
+
+'
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 36
+      endSourceChar: 42
+      line: 2
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 42
+      endSourceChar: 42
+      line: 2
+      lineChar: 6
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 42
+      endSourceChar: 46
+      line: 2
+      lineChar: 6
+      spanCodeSection: VRC.
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 46
+      endSourceChar: 55
+      line: 2
+      lineChar: 10
+      spanCodeSection: 'SDKBase;
+
+'
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 55
+      endSourceChar: 61
+      line: 3
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 61
+      endSourceChar: 61
+      line: 3
+      lineChar: 6
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 61
+      endSourceChar: 65
+      line: 3
+      lineChar: 6
+      spanCodeSection: VRC.
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 65
+      endSourceChar: 71
+      line: 3
+      lineChar: 10
+      spanCodeSection: 'Udon;
+
+'
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 71
+      endSourceChar: 77
+      line: 4
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 77
+      endSourceChar: 77
+      line: 4
+      lineChar: 6
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 77
+      endSourceChar: 77
+      line: 4
+      lineChar: 6
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 77
+      endSourceChar: 81
+      line: 4
+      lineChar: 6
+      spanCodeSection: VRC.
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 81
+      endSourceChar: 86
+      line: 4
+      lineChar: 10
+      spanCodeSection: SDK3.
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 86
+      endSourceChar: 99
+      line: 4
+      lineChar: 15
+      spanCodeSection: 'Components;
+
+
+'
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 99
+      endSourceChar: 144
+      line: 6
+      lineChar: 0
+      spanCodeSection: "namespace aki_lua87.UdonScripts.Common\n{\n    "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 144
+      endSourceChar: 239
+      line: 8
+      lineChar: 4
+      spanCodeSection: "[AddComponentMenu(\"aki_lua87/UdonScripts/TogglLightSwitch\")]\n
+        \   public class TogglLightSwitch "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 239
+      endSourceChar: 241
+      line: 9
+      lineChar: 34
+      spanCodeSection: ': '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 241
+      endSourceChar: 241
+      line: 9
+      lineChar: 36
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 241
+      endSourceChar: 302
+      line: 9
+      lineChar: 36
+      spanCodeSection: "UdonSharpBehaviour\n    {\n        // \u30C7\u30D5\u30A9\u30EB\u30C8\u306F\u96FB\u6C17\u304C\u3064\u3044\u3066\u3044\u308B\u72B6\u614B\n
+        \       "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 302
+      endSourceChar: 310
+      line: 12
+      lineChar: 8
+      spanCodeSection: 'private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 310
+      endSourceChar: 310
+      line: 12
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 310
+      endSourceChar: 344
+      line: 12
+      lineChar: 16
+      spanCodeSection: "bool isSwitchedOn = true;\n        "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 344
+      endSourceChar: 345
+      line: 13
+      lineChar: 8
+      spanCodeSection: '['
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 345
+      endSourceChar: 345
+      line: 13
+      lineChar: 9
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 345
+      endSourceChar: 369
+      line: 13
+      lineChar: 9
+      spanCodeSection: 'SerializeField] private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 369
+      endSourceChar: 369
+      line: 13
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 369
+      endSourceChar: 390
+      line: 13
+      lineChar: 33
+      spanCodeSection: "Light Light;\n        "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 390
+      endSourceChar: 391
+      line: 14
+      lineChar: 8
+      spanCodeSection: '['
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 391
+      endSourceChar: 391
+      line: 14
+      lineChar: 9
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 391
+      endSourceChar: 415
+      line: 14
+      lineChar: 9
+      spanCodeSection: 'SerializeField] private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 415
+      endSourceChar: 415
+      line: 14
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 415
+      endSourceChar: 459
+      line: 14
+      lineChar: 33
+      spanCodeSection: "float LightONIntensity; // ex. 0.06\n        "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 459
+      endSourceChar: 460
+      line: 15
+      lineChar: 8
+      spanCodeSection: '['
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 460
+      endSourceChar: 460
+      line: 15
+      lineChar: 9
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 460
+      endSourceChar: 484
+      line: 15
+      lineChar: 9
+      spanCodeSection: 'SerializeField] private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 484
+      endSourceChar: 484
+      line: 15
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 484
+      endSourceChar: 528
+      line: 15
+      lineChar: 33
+      spanCodeSection: "float LightOFFIntensity; // ex. 0.4\n        "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 528
+      endSourceChar: 529
+      line: 16
+      lineChar: 8
+      spanCodeSection: '['
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 529
+      endSourceChar: 529
+      line: 16
+      lineChar: 9
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 529
+      endSourceChar: 553
+      line: 16
+      lineChar: 9
+      spanCodeSection: 'SerializeField] private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 553
+      endSourceChar: 553
+      line: 16
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 553
+      endSourceChar: 584
+      line: 16
+      lineChar: 33
+      spanCodeSection: "GameObject ON_Swittch;\n        "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 584
+      endSourceChar: 585
+      line: 17
+      lineChar: 8
+      spanCodeSection: '['
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 585
+      endSourceChar: 585
+      line: 17
+      lineChar: 9
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 585
+      endSourceChar: 609
+      line: 17
+      lineChar: 9
+      spanCodeSection: 'SerializeField] private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 609
+      endSourceChar: 609
+      line: 17
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 609
+      endSourceChar: 640
+      line: 17
+      lineChar: 33
+      spanCodeSection: "GameObject OFF_Switch;\n        "
+    - startInstruction: 0
+      endInstruction: 7
+      startSourceChar: 640
+      endSourceChar: 680
+      line: 18
+      lineChar: 8
+      spanCodeSection: "public override void Interact()\n        "
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 680
+      endSourceChar: 694
+      line: 19
+      lineChar: 8
+      spanCodeSection: "{\n            "
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 694
+      endSourceChar: 697
+      line: 20
+      lineChar: 12
+      spanCodeSection: if(
+    - startInstruction: 8
+      endInstruction: 23
+      startSourceChar: 697
+      endSourceChar: 723
+      line: 20
+      lineChar: 15
+      spanCodeSection: "isSwitchedOn)\n            "
+    - startInstruction: 24
+      endInstruction: 23
+      startSourceChar: 723
+      endSourceChar: 741
+      line: 21
+      lineChar: 12
+      spanCodeSection: "{\n                "
+    - startInstruction: 24
+      endInstruction: 23
+      startSourceChar: 741
+      endSourceChar: 741
+      line: 22
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 24
+      endInstruction: 23
+      startSourceChar: 741
+      endSourceChar: 741
+      line: 22
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 24
+      endInstruction: 47
+      startSourceChar: 741
+      endSourceChar: 767
+      line: 22
+      lineChar: 16
+      spanCodeSection: "SwitchOFF();\n            }"
+    - startInstruction: 48
+      endInstruction: 47
+      startSourceChar: 767
+      endSourceChar: 771
+      line: 23
+      lineChar: 13
+      spanCodeSection: else
+    - startInstruction: 48
+      endInstruction: 47
+      startSourceChar: 771
+      endSourceChar: 789
+      line: 23
+      lineChar: 17
+      spanCodeSection: "{\n                "
+    - startInstruction: 48
+      endInstruction: 47
+      startSourceChar: 789
+      endSourceChar: 789
+      line: 24
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 48
+      endInstruction: 47
+      startSourceChar: 789
+      endSourceChar: 789
+      line: 24
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 48
+      endInstruction: 83
+      startSourceChar: 789
+      endSourceChar: 881
+      line: 24
+      lineChar: 16
+      spanCodeSection: "SwitchON();\n            }\n        }\n\n        // \u5BFE\u8C61\u306E\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8\u3092\u30C8\u30B0\u30EB\u3001ON\u30B9\u30A4\u30C3\u30C1\u3092\u975E\u8868\u793A
+        OFF\u30B9\u30A4\u30C3\u30C1\u3092\u8868\u793A\n        "
+    - startInstruction: 84
+      endInstruction: 91
+      startSourceChar: 881
+      endSourceChar: 913
+      line: 29
+      lineChar: 8
+      spanCodeSection: "private void SwitchON()\n        "
+    - startInstruction: 92
+      endInstruction: 91
+      startSourceChar: 913
+      endSourceChar: 927
+      line: 30
+      lineChar: 8
+      spanCodeSection: "{\n            "
+    - startInstruction: 92
+      endInstruction: 91
+      startSourceChar: 927
+      endSourceChar: 927
+      line: 31
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 92
+      endInstruction: 91
+      startSourceChar: 927
+      endSourceChar: 927
+      line: 31
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 92
+      endInstruction: 91
+      startSourceChar: 927
+      endSourceChar: 927
+      line: 31
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 92
+      endInstruction: 91
+      startSourceChar: 927
+      endSourceChar: 933
+      line: 31
+      lineChar: 12
+      spanCodeSection: Light.
+    - startInstruction: 92
+      endInstruction: 91
+      startSourceChar: 933
+      endSourceChar: 945
+      line: 31
+      lineChar: 18
+      spanCodeSection: 'intensity = '
+    - startInstruction: 92
+      endInstruction: 115
+      startSourceChar: 945
+      endSourceChar: 975
+      line: 31
+      lineChar: 30
+      spanCodeSection: "LightONIntensity;\n            "
+    - startInstruction: 116
+      endInstruction: 115
+      startSourceChar: 975
+      endSourceChar: 975
+      line: 32
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 116
+      endInstruction: 115
+      startSourceChar: 975
+      endSourceChar: 975
+      line: 32
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 116
+      endInstruction: 115
+      startSourceChar: 975
+      endSourceChar: 975
+      line: 32
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 116
+      endInstruction: 115
+      startSourceChar: 975
+      endSourceChar: 986
+      line: 32
+      lineChar: 12
+      spanCodeSection: ON_Swittch.
+    - startInstruction: 116
+      endInstruction: 115
+      startSourceChar: 986
+      endSourceChar: 996
+      line: 32
+      lineChar: 23
+      spanCodeSection: SetActive(
+    - startInstruction: 116
+      endInstruction: 139
+      startSourceChar: 996
+      endSourceChar: 1016
+      line: 32
+      lineChar: 33
+      spanCodeSection: "false);\n            "
+    - startInstruction: 140
+      endInstruction: 139
+      startSourceChar: 1016
+      endSourceChar: 1016
+      line: 33
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 140
+      endInstruction: 139
+      startSourceChar: 1016
+      endSourceChar: 1016
+      line: 33
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 140
+      endInstruction: 139
+      startSourceChar: 1016
+      endSourceChar: 1016
+      line: 33
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 140
+      endInstruction: 139
+      startSourceChar: 1016
+      endSourceChar: 1027
+      line: 33
+      lineChar: 12
+      spanCodeSection: OFF_Switch.
+    - startInstruction: 140
+      endInstruction: 139
+      startSourceChar: 1027
+      endSourceChar: 1037
+      line: 33
+      lineChar: 23
+      spanCodeSection: SetActive(
+    - startInstruction: 140
+      endInstruction: 163
+      startSourceChar: 1037
+      endSourceChar: 1056
+      line: 33
+      lineChar: 33
+      spanCodeSection: "true);\n            "
+    - startInstruction: 164
+      endInstruction: 163
+      startSourceChar: 1056
+      endSourceChar: 1056
+      line: 34
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 164
+      endInstruction: 163
+      startSourceChar: 1056
+      endSourceChar: 1056
+      line: 34
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 164
+      endInstruction: 163
+      startSourceChar: 1056
+      endSourceChar: 1071
+      line: 34
+      lineChar: 12
+      spanCodeSection: 'isSwitchedOn = '
+    - startInstruction: 164
+      endInstruction: 203
+      startSourceChar: 1071
+      endSourceChar: 1143
+      line: 34
+      lineChar: 27
+      spanCodeSection: "true;\n        }\n\n        // \u5BFE\u8C61\u306E\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8\u3092\u30C8\u30B0\u30EB\u3001ON\u30B9\u30A4\u30C3\u30C1\u3092\u8868\u793A
+        OFF\u30B9\u30A4\u30C3\u30C1\u3092\u975E\u8868\u793A\n        "
+    - startInstruction: 204
+      endInstruction: 211
+      startSourceChar: 1143
+      endSourceChar: 1176
+      line: 38
+      lineChar: 8
+      spanCodeSection: "private void SwitchOFF()\n        "
+    - startInstruction: 212
+      endInstruction: 211
+      startSourceChar: 1176
+      endSourceChar: 1190
+      line: 39
+      lineChar: 8
+      spanCodeSection: "{\n            "
+    - startInstruction: 212
+      endInstruction: 211
+      startSourceChar: 1190
+      endSourceChar: 1190
+      line: 40
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 212
+      endInstruction: 211
+      startSourceChar: 1190
+      endSourceChar: 1190
+      line: 40
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 212
+      endInstruction: 211
+      startSourceChar: 1190
+      endSourceChar: 1190
+      line: 40
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 212
+      endInstruction: 211
+      startSourceChar: 1190
+      endSourceChar: 1196
+      line: 40
+      lineChar: 12
+      spanCodeSection: Light.
+    - startInstruction: 212
+      endInstruction: 211
+      startSourceChar: 1196
+      endSourceChar: 1208
+      line: 40
+      lineChar: 18
+      spanCodeSection: 'intensity = '
+    - startInstruction: 212
+      endInstruction: 235
+      startSourceChar: 1208
+      endSourceChar: 1239
+      line: 40
+      lineChar: 30
+      spanCodeSection: "LightOFFIntensity;\n            "
+    - startInstruction: 236
+      endInstruction: 235
+      startSourceChar: 1239
+      endSourceChar: 1239
+      line: 41
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 236
+      endInstruction: 235
+      startSourceChar: 1239
+      endSourceChar: 1239
+      line: 41
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 236
+      endInstruction: 235
+      startSourceChar: 1239
+      endSourceChar: 1239
+      line: 41
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 236
+      endInstruction: 235
+      startSourceChar: 1239
+      endSourceChar: 1250
+      line: 41
+      lineChar: 12
+      spanCodeSection: ON_Swittch.
+    - startInstruction: 236
+      endInstruction: 235
+      startSourceChar: 1250
+      endSourceChar: 1260
+      line: 41
+      lineChar: 23
+      spanCodeSection: SetActive(
+    - startInstruction: 236
+      endInstruction: 259
+      startSourceChar: 1260
+      endSourceChar: 1279
+      line: 41
+      lineChar: 33
+      spanCodeSection: "true);\n            "
+    - startInstruction: 260
+      endInstruction: 259
+      startSourceChar: 1279
+      endSourceChar: 1279
+      line: 42
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 260
+      endInstruction: 259
+      startSourceChar: 1279
+      endSourceChar: 1279
+      line: 42
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 260
+      endInstruction: 259
+      startSourceChar: 1279
+      endSourceChar: 1279
+      line: 42
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 260
+      endInstruction: 259
+      startSourceChar: 1279
+      endSourceChar: 1290
+      line: 42
+      lineChar: 12
+      spanCodeSection: OFF_Switch.
+    - startInstruction: 260
+      endInstruction: 259
+      startSourceChar: 1290
+      endSourceChar: 1300
+      line: 42
+      lineChar: 23
+      spanCodeSection: SetActive(
+    - startInstruction: 260
+      endInstruction: 283
+      startSourceChar: 1300
+      endSourceChar: 1320
+      line: 42
+      lineChar: 33
+      spanCodeSection: "false);\n            "
+    - startInstruction: 284
+      endInstruction: 283
+      startSourceChar: 1320
+      endSourceChar: 1320
+      line: 43
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 284
+      endInstruction: 283
+      startSourceChar: 1320
+      endSourceChar: 1320
+      line: 43
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 284
+      endInstruction: 283
+      startSourceChar: 1320
+      endSourceChar: 1335
+      line: 43
+      lineChar: 12
+      spanCodeSection: 'isSwitchedOn = '
+    - startInstruction: 284
+      endInstruction: 284
+      startSourceChar: 1335
+      endSourceChar: 1335
+      line: 43
+      lineChar: 27
+      spanCodeSection: 
+  hasInteractEvent: 1
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: fieldDefinitions
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UdonSharp.FieldDefinition,
+        UdonSharp.Editor]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: isSwitchedOn
+    - Name: $v
+      Entry: 7
+      Data: 2|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 3|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 7
+      Data: 4|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: System.Boolean, mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: declarationType
+      Entry: 3
+      Data: 2
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: SystemBoolean
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: isSwitchedOn
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: isSwitchedOn
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Light
+    - Name: $v
+      Entry: 7
+      Data: 6|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 7|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 7
+      Data: 8|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: UnityEngine.Light, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: UnityEngineLight
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: Light
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: Light
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 9|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 10|UnityEngine.SerializeField, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: LightONIntensity
+    - Name: $v
+      Entry: 7
+      Data: 11|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 12|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 7
+      Data: 13|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: System.Single, mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: SystemSingle
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: LightONIntensity
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: LightONIntensity
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 14|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 15|UnityEngine.SerializeField, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: LightOFFIntensity
+    - Name: $v
+      Entry: 7
+      Data: 16|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 17|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 9
+      Data: 13
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: SystemSingle
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: LightOFFIntensity
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: LightOFFIntensity
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 18|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 19|UnityEngine.SerializeField, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: ON_Swittch
+    - Name: $v
+      Entry: 7
+      Data: 20|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 21|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 7
+      Data: 22|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: UnityEngine.GameObject, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: UnityEngineGameObject
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: ON_Swittch
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: ON_Swittch
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 23|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 24|UnityEngine.SerializeField, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: OFF_Switch
+    - Name: $v
+      Entry: 7
+      Data: 25|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 26|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 9
+      Data: 22
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: UnityEngineGameObject
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: OFF_Switch
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: OFF_Switch
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 27|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 28|UnityEngine.SerializeField, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
