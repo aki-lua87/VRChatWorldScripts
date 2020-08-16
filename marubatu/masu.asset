@@ -51,46 +51,48 @@ MonoBehaviour:
     \       COPY\n        PUSH, __0_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000000CC\n
     \       \n         # return;\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit
     return sequence\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
-    \       \n         # parent.SendCustomEvent(\"GameEndChaeck\");\n        PUSH,
-    parent\n        PUSH, __0_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
     \       \n         # var isGameEnd = (bool) parent.GetProgramVariable(\"isGameEnd\");\n
-    \       PUSH, parent\n        PUSH, __1_const_intnl_SystemString\n        PUSH,
+    \       PUSH, parent\n        PUSH, __0_const_intnl_SystemString\n        PUSH,
     __0_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
     \       PUSH, __0_intnl_SystemObject\n        PUSH, __5_intnl_SystemBoolean\n
     \       EXTERN, \"SystemConvert.__ToBoolean__SystemObject__SystemBoolean\"\n        PUSH,
     __5_intnl_SystemBoolean\n        PUSH, __0_isGameEnd_Boolean\n        COPY\n        \n
     \        # if(isGameEnd){\n        PUSH, __0_isGameEnd_Boolean\n        JUMP_IF_FALSE,
-    0x00000154\n        \n         # return;\n        PUSH, __0_intnl_returnTarget_UInt32
+    0x0000013C\n        \n         # return;\n        PUSH, __0_intnl_returnTarget_UInt32
     #Explicit return sequence\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
     \       \n         # parent.SendCustomEvent(\"NextFigure\");\n        PUSH, parent\n
-    \       PUSH, __2_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       PUSH, __1_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
     \       \n         # var isFigureMaru = (bool) parent.GetProgramVariable(\"isFigureMaru\");\n
-    \       PUSH, parent\n        PUSH, __3_const_intnl_SystemString\n        PUSH,
+    \       PUSH, parent\n        PUSH, __2_const_intnl_SystemString\n        PUSH,
     __1_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
     \       PUSH, __1_intnl_SystemObject\n        PUSH, __6_intnl_SystemBoolean\n
     \       EXTERN, \"SystemConvert.__ToBoolean__SystemObject__SystemBoolean\"\n        PUSH,
     __6_intnl_SystemBoolean\n        PUSH, __0_isFigureMaru_Boolean\n        COPY\n
     \       \n         # if(isFigureMaru){\n        PUSH, __0_isFigureMaru_Boolean\n
-    \       JUMP_IF_FALSE, 0x000001F0\n        \n         # SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All,
+    \       JUMP_IF_FALSE, 0x000001D8\n        \n         # SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All,
+    \"WriteMaru\");\n        PUSH, __0_this_intnl_aki_lua87UdonScriptsmarubatumasu\n
+    \       PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\n        PUSH,
+    __3_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\n
+    \       JUMP, 0x000001F8\n        \n         # }else{\n        \n         # SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All,
     \"WriteBatu\");\n        PUSH, __0_this_intnl_aki_lua87UdonScriptsmarubatumasu\n
     \       PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\n        PUSH,
     __4_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\n
-    \       JUMP, 0x00000210\n        \n         # }else{\n        \n         # SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All,
-    \"WriteMaru\");\n        PUSH, __0_this_intnl_aki_lua87UdonScriptsmarubatumasu\n
-    \       PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\n        PUSH,
-    __5_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
     public void WriteMaru()\n    .export WriteMaru\n        \n    WriteMaru:\n        \n
     \       PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n        \n
     \        # maru.SetActive(true);\n        PUSH, maru\n        PUSH, __0_const_intnl_SystemBoolean\n
     \       EXTERN, \"UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid\"\n
+    \       \n         # parent.SendCustomEvent(\"GameEndCheck\");\n        PUSH,
+    parent\n        PUSH, __5_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
     public void WriteBatu()\n    .export WriteBatu\n        \n    WriteBatu:\n        \n
     \       PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n        \n
     \        # batu.SetActive(true);\n        PUSH, batu\n        PUSH, __0_const_intnl_SystemBoolean\n
     \       EXTERN, \"UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid\"\n
+    \       \n         # parent.SendCustomEvent(\"GameEndCheck\");\n        PUSH,
+    parent\n        PUSH, __5_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n.code_end\n"
   assemblyError: 
@@ -123,924 +125,958 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 6
-      endSourceChar: 17
+      endSourceChar: 18
       line: 0
       lineChar: 6
-      spanCodeSection: 'UdonSharp;
-
-'
+      spanCodeSection: "UdonSharp;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 17
-      endSourceChar: 23
+      startSourceChar: 18
+      endSourceChar: 24
       line: 1
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 23
-      endSourceChar: 36
+      startSourceChar: 24
+      endSourceChar: 38
       line: 1
       lineChar: 6
-      spanCodeSection: 'UnityEngine;
-
-'
+      spanCodeSection: "UnityEngine;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 36
-      endSourceChar: 42
+      startSourceChar: 38
+      endSourceChar: 44
       line: 2
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 42
-      endSourceChar: 42
+      startSourceChar: 44
+      endSourceChar: 44
       line: 2
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 42
-      endSourceChar: 46
+      startSourceChar: 44
+      endSourceChar: 48
       line: 2
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 46
-      endSourceChar: 55
+      startSourceChar: 48
+      endSourceChar: 58
       line: 2
       lineChar: 10
-      spanCodeSection: 'SDKBase;
-
-'
+      spanCodeSection: "SDKBase;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 55
-      endSourceChar: 61
+      startSourceChar: 58
+      endSourceChar: 64
       line: 3
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 61
-      endSourceChar: 61
+      startSourceChar: 64
+      endSourceChar: 64
       line: 3
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 61
-      endSourceChar: 65
+      startSourceChar: 64
+      endSourceChar: 68
       line: 3
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 65
-      endSourceChar: 72
+      startSourceChar: 68
+      endSourceChar: 77
       line: 3
       lineChar: 10
-      spanCodeSection: 'Udon;
-
-
-'
+      spanCodeSection: "Udon;\r\n\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 72
-      endSourceChar: 119
+      startSourceChar: 77
+      endSourceChar: 126
       line: 5
       lineChar: 0
-      spanCodeSection: "namespace aki_lua87.UdonScripts.marubatu\n{\n    "
+      spanCodeSection: "namespace aki_lua87.UdonScripts.marubatu\r\n{\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 119
-      endSourceChar: 137
+      startSourceChar: 126
+      endSourceChar: 144
       line: 7
       lineChar: 4
       spanCodeSection: 'public class masu '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 137
-      endSourceChar: 139
+      startSourceChar: 144
+      endSourceChar: 146
       line: 7
       lineChar: 22
       spanCodeSection: ': '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 139
-      endSourceChar: 139
+      startSourceChar: 146
+      endSourceChar: 146
       line: 7
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 139
-      endSourceChar: 194
+      startSourceChar: 146
+      endSourceChar: 204
       line: 7
       lineChar: 24
-      spanCodeSection: "UdonSharpBehaviour\n    {\n        // \u56F3\u5F62\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8\u53C2\u7167\n
+      spanCodeSection: "UdonSharpBehaviour\r\n    {\r\n        // \u56F3\u5F62\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8\u53C2\u7167\r\n
         \       "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 194
-      endSourceChar: 195
+      startSourceChar: 204
+      endSourceChar: 205
       line: 10
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 195
-      endSourceChar: 195
+      startSourceChar: 205
+      endSourceChar: 205
       line: 10
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 195
-      endSourceChar: 219
+      startSourceChar: 205
+      endSourceChar: 229
       line: 10
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 219
-      endSourceChar: 219
+      startSourceChar: 229
+      endSourceChar: 229
       line: 10
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 219
-      endSourceChar: 244
+      startSourceChar: 229
+      endSourceChar: 255
       line: 10
       lineChar: 33
-      spanCodeSection: "GameObject maru;\n        "
+      spanCodeSection: "GameObject maru;\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 244
-      endSourceChar: 245
+      startSourceChar: 255
+      endSourceChar: 256
       line: 11
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 245
-      endSourceChar: 245
+      startSourceChar: 256
+      endSourceChar: 256
       line: 11
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 245
-      endSourceChar: 269
+      startSourceChar: 256
+      endSourceChar: 280
       line: 11
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 269
-      endSourceChar: 269
+      startSourceChar: 280
+      endSourceChar: 280
       line: 11
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 269
-      endSourceChar: 294
+      startSourceChar: 280
+      endSourceChar: 306
       line: 11
       lineChar: 33
-      spanCodeSection: "GameObject batu;\n        "
+      spanCodeSection: "GameObject batu;\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 294
-      endSourceChar: 295
+      startSourceChar: 306
+      endSourceChar: 307
       line: 12
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 295
-      endSourceChar: 295
+      startSourceChar: 307
+      endSourceChar: 307
       line: 12
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 295
-      endSourceChar: 319
+      startSourceChar: 307
+      endSourceChar: 331
       line: 12
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 319
-      endSourceChar: 319
+      startSourceChar: 331
+      endSourceChar: 331
       line: 12
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 319
-      endSourceChar: 349
+      startSourceChar: 331
+      endSourceChar: 362
       line: 12
       lineChar: 33
-      spanCodeSection: "UdonBehaviour parent;\n        "
+      spanCodeSection: "UdonBehaviour parent;\r\n        "
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 349
-      endSourceChar: 389
+      startSourceChar: 362
+      endSourceChar: 403
       line: 13
       lineChar: 8
-      spanCodeSection: "public override void Interact()\n        "
+      spanCodeSection: "public override void Interact()\r\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 389
-      endSourceChar: 434
+      startSourceChar: 403
+      endSourceChar: 450
       line: 14
       lineChar: 8
-      spanCodeSection: "{\n            // \u66F8\u304D\u8FBC\u307E\u308C\u3066\u3044\u305F\u5834\u5408\u306F\u633F\u5165\u4E0D\u53EF\n
+      spanCodeSection: "{\r\n            // \u66F8\u304D\u8FBC\u307E\u308C\u3066\u3044\u305F\u5834\u5408\u306F\u633F\u5165\u4E0D\u53EF\r\n
         \           "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 434
-      endSourceChar: 437
+      startSourceChar: 450
+      endSourceChar: 453
       line: 16
       lineChar: 12
       spanCodeSection: if(
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 437
-      endSourceChar: 437
+      startSourceChar: 453
+      endSourceChar: 453
       line: 16
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 437
-      endSourceChar: 437
+      startSourceChar: 453
+      endSourceChar: 453
       line: 16
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 437
-      endSourceChar: 442
+      startSourceChar: 453
+      endSourceChar: 458
       line: 16
       lineChar: 15
       spanCodeSection: maru.
     - startInstruction: 8
       endInstruction: 91
-      startSourceChar: 442
-      endSourceChar: 456
+      startSourceChar: 458
+      endSourceChar: 472
       line: 16
       lineChar: 20
       spanCodeSection: 'activeSelf || '
     - startInstruction: 92
       endInstruction: 91
-      startSourceChar: 456
-      endSourceChar: 456
+      startSourceChar: 472
+      endSourceChar: 472
       line: 16
       lineChar: 34
       spanCodeSection: 
     - startInstruction: 92
       endInstruction: 91
-      startSourceChar: 456
-      endSourceChar: 461
+      startSourceChar: 472
+      endSourceChar: 477
       line: 16
       lineChar: 34
       spanCodeSection: batu.
     - startInstruction: 92
       endInstruction: 183
-      startSourceChar: 461
-      endSourceChar: 472
+      startSourceChar: 477
+      endSourceChar: 488
       line: 16
       lineChar: 39
       spanCodeSection: activeSelf)
     - startInstruction: 184
       endInstruction: 183
-      startSourceChar: 472
-      endSourceChar: 490
+      startSourceChar: 488
+      endSourceChar: 507
       line: 16
       lineChar: 50
-      spanCodeSection: "{\n                "
+      spanCodeSection: "{\r\n                "
     - startInstruction: 184
       endInstruction: 203
-      startSourceChar: 490
-      endSourceChar: 524
+      startSourceChar: 507
+      endSourceChar: 543
       line: 17
       lineChar: 16
-      spanCodeSection: "return;\n            }\n            "
+      spanCodeSection: "return;\r\n            }\r\n            "
     - startInstruction: 204
       endInstruction: 203
-      startSourceChar: 524
-      endSourceChar: 524
+      startSourceChar: 543
+      endSourceChar: 543
       line: 19
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 204
       endInstruction: 203
-      startSourceChar: 524
-      endSourceChar: 524
+      startSourceChar: 543
+      endSourceChar: 543
       line: 19
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 204
       endInstruction: 203
-      startSourceChar: 524
-      endSourceChar: 524
+      startSourceChar: 543
+      endSourceChar: 557
       line: 19
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 204
-      endInstruction: 203
-      startSourceChar: 524
-      endSourceChar: 531
-      line: 19
-      lineChar: 12
-      spanCodeSection: parent.
-    - startInstruction: 204
-      endInstruction: 203
-      startSourceChar: 531
-      endSourceChar: 547
-      line: 19
-      lineChar: 19
-      spanCodeSection: SendCustomEvent(
-    - startInstruction: 204
-      endInstruction: 227
-      startSourceChar: 547
-      endSourceChar: 577
-      line: 19
-      lineChar: 35
-      spanCodeSection: "\"GameEndChaeck\");\n            "
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 577
-      endSourceChar: 577
-      line: 20
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 577
-      endSourceChar: 577
-      line: 20
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 577
-      endSourceChar: 591
-      line: 20
       lineChar: 12
       spanCodeSection: 'var isGameEnd '
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 591
-      endSourceChar: 593
-      line: 20
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 557
+      endSourceChar: 559
+      line: 19
       lineChar: 26
       spanCodeSection: '= '
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 593
-      endSourceChar: 600
-      line: 20
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 559
+      endSourceChar: 566
+      line: 19
       lineChar: 28
       spanCodeSection: '(bool) '
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 600
-      endSourceChar: 600
-      line: 20
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 566
+      endSourceChar: 566
+      line: 19
       lineChar: 35
       spanCodeSection: 
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 600
-      endSourceChar: 600
-      line: 20
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 566
+      endSourceChar: 566
+      line: 19
       lineChar: 35
       spanCodeSection: 
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 600
-      endSourceChar: 607
-      line: 20
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 566
+      endSourceChar: 573
+      line: 19
       lineChar: 35
       spanCodeSection: parent.
-    - startInstruction: 228
-      endInstruction: 227
-      startSourceChar: 607
-      endSourceChar: 626
-      line: 20
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 573
+      endSourceChar: 592
+      line: 19
       lineChar: 42
       spanCodeSection: GetProgramVariable(
-    - startInstruction: 228
-      endInstruction: 303
-      startSourceChar: 626
-      endSourceChar: 652
-      line: 20
+    - startInstruction: 204
+      endInstruction: 279
+      startSourceChar: 592
+      endSourceChar: 619
+      line: 19
       lineChar: 61
-      spanCodeSection: "\"isGameEnd\");\n            "
-    - startInstruction: 304
-      endInstruction: 303
-      startSourceChar: 652
-      endSourceChar: 655
-      line: 21
+      spanCodeSection: "\"isGameEnd\");\r\n            "
+    - startInstruction: 280
+      endInstruction: 279
+      startSourceChar: 619
+      endSourceChar: 622
+      line: 20
       lineChar: 12
       spanCodeSection: if(
-    - startInstruction: 304
-      endInstruction: 319
-      startSourceChar: 655
-      endSourceChar: 665
-      line: 21
+    - startInstruction: 280
+      endInstruction: 295
+      startSourceChar: 622
+      endSourceChar: 632
+      line: 20
       lineChar: 15
       spanCodeSection: isGameEnd)
-    - startInstruction: 320
-      endInstruction: 319
-      startSourceChar: 665
-      endSourceChar: 722
-      line: 21
+    - startInstruction: 296
+      endInstruction: 295
+      startSourceChar: 632
+      endSourceChar: 688
+      line: 20
       lineChar: 25
-      spanCodeSection: "{\n                // TODO: \u30B2\u30FC\u30E0\u7D42\u4E86\u3057\u3066\u305F\u3089\u66F8\u3051\u306A\u3044\n
+      spanCodeSection: "{\r\n                // \u30B2\u30FC\u30E0\u7D42\u4E86\u3057\u3066\u305F\u3089\u66F8\u3051\u306A\u3044\u3088\u3046\u306B\r\n
         \               "
-    - startInstruction: 320
-      endInstruction: 339
-      startSourceChar: 722
-      endSourceChar: 756
-      line: 23
+    - startInstruction: 296
+      endInstruction: 315
+      startSourceChar: 688
+      endSourceChar: 724
+      line: 22
       lineChar: 16
-      spanCodeSection: "return;\n            }\n            "
-    - startInstruction: 340
-      endInstruction: 339
-      startSourceChar: 756
-      endSourceChar: 756
-      line: 25
+      spanCodeSection: "return;\r\n            }\r\n            "
+    - startInstruction: 316
+      endInstruction: 315
+      startSourceChar: 724
+      endSourceChar: 724
+      line: 24
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 340
-      endInstruction: 339
-      startSourceChar: 756
-      endSourceChar: 756
-      line: 25
+    - startInstruction: 316
+      endInstruction: 315
+      startSourceChar: 724
+      endSourceChar: 724
+      line: 24
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 340
-      endInstruction: 339
-      startSourceChar: 756
-      endSourceChar: 756
-      line: 25
+    - startInstruction: 316
+      endInstruction: 315
+      startSourceChar: 724
+      endSourceChar: 724
+      line: 24
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 340
-      endInstruction: 339
-      startSourceChar: 756
-      endSourceChar: 763
-      line: 25
+    - startInstruction: 316
+      endInstruction: 315
+      startSourceChar: 724
+      endSourceChar: 731
+      line: 24
       lineChar: 12
       spanCodeSection: parent.
-    - startInstruction: 340
-      endInstruction: 339
-      startSourceChar: 763
-      endSourceChar: 779
-      line: 25
+    - startInstruction: 316
+      endInstruction: 315
+      startSourceChar: 731
+      endSourceChar: 747
+      line: 24
       lineChar: 19
       spanCodeSection: SendCustomEvent(
-    - startInstruction: 340
-      endInstruction: 363
-      startSourceChar: 779
-      endSourceChar: 806
-      line: 25
+    - startInstruction: 316
+      endInstruction: 339
+      startSourceChar: 747
+      endSourceChar: 775
+      line: 24
       lineChar: 35
-      spanCodeSection: "\"NextFigure\");\n            "
-    - startInstruction: 364
-      endInstruction: 363
-      startSourceChar: 806
-      endSourceChar: 806
-      line: 26
+      spanCodeSection: "\"NextFigure\");\r\n            "
+    - startInstruction: 340
+      endInstruction: 339
+      startSourceChar: 775
+      endSourceChar: 775
+      line: 25
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 364
-      endInstruction: 363
-      startSourceChar: 806
-      endSourceChar: 806
-      line: 26
+    - startInstruction: 340
+      endInstruction: 339
+      startSourceChar: 775
+      endSourceChar: 775
+      line: 25
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 364
-      endInstruction: 363
-      startSourceChar: 806
-      endSourceChar: 823
-      line: 26
+    - startInstruction: 340
+      endInstruction: 339
+      startSourceChar: 775
+      endSourceChar: 792
+      line: 25
       lineChar: 12
       spanCodeSection: 'var isFigureMaru '
-    - startInstruction: 364
-      endInstruction: 363
-      startSourceChar: 823
-      endSourceChar: 825
-      line: 26
+    - startInstruction: 340
+      endInstruction: 339
+      startSourceChar: 792
+      endSourceChar: 794
+      line: 25
       lineChar: 29
       spanCodeSection: '= '
-    - startInstruction: 364
-      endInstruction: 363
-      startSourceChar: 825
-      endSourceChar: 832
-      line: 26
+    - startInstruction: 340
+      endInstruction: 339
+      startSourceChar: 794
+      endSourceChar: 801
+      line: 25
       lineChar: 31
       spanCodeSection: '(bool) '
-    - startInstruction: 364
-      endInstruction: 363
-      startSourceChar: 832
-      endSourceChar: 832
-      line: 26
+    - startInstruction: 340
+      endInstruction: 339
+      startSourceChar: 801
+      endSourceChar: 801
+      line: 25
       lineChar: 38
       spanCodeSection: 
-    - startInstruction: 364
-      endInstruction: 363
-      startSourceChar: 832
-      endSourceChar: 832
-      line: 26
+    - startInstruction: 340
+      endInstruction: 339
+      startSourceChar: 801
+      endSourceChar: 801
+      line: 25
       lineChar: 38
       spanCodeSection: 
-    - startInstruction: 364
-      endInstruction: 363
-      startSourceChar: 832
-      endSourceChar: 839
-      line: 26
+    - startInstruction: 340
+      endInstruction: 339
+      startSourceChar: 801
+      endSourceChar: 808
+      line: 25
       lineChar: 38
       spanCodeSection: parent.
-    - startInstruction: 364
-      endInstruction: 363
-      startSourceChar: 839
-      endSourceChar: 858
-      line: 26
+    - startInstruction: 340
+      endInstruction: 339
+      startSourceChar: 808
+      endSourceChar: 827
+      line: 25
       lineChar: 45
       spanCodeSection: GetProgramVariable(
-    - startInstruction: 364
-      endInstruction: 439
-      startSourceChar: 858
-      endSourceChar: 906
-      line: 26
+    - startInstruction: 340
+      endInstruction: 415
+      startSourceChar: 827
+      endSourceChar: 878
+      line: 25
       lineChar: 64
-      spanCodeSection: "\"isFigureMaru\");\n\n            // \u63CF\u5199\n            "
-    - startInstruction: 440
-      endInstruction: 439
-      startSourceChar: 906
-      endSourceChar: 909
-      line: 29
+      spanCodeSection: "\"isFigureMaru\");\r\n\r\n            // \u63CF\u5199\r\n
+        \           "
+    - startInstruction: 416
+      endInstruction: 415
+      startSourceChar: 878
+      endSourceChar: 881
+      line: 28
       lineChar: 12
       spanCodeSection: if(
-    - startInstruction: 440
-      endInstruction: 455
-      startSourceChar: 909
-      endSourceChar: 922
-      line: 29
+    - startInstruction: 416
+      endInstruction: 431
+      startSourceChar: 881
+      endSourceChar: 894
+      line: 28
       lineChar: 15
       spanCodeSection: isFigureMaru)
-    - startInstruction: 456
-      endInstruction: 455
-      startSourceChar: 922
+    - startInstruction: 432
+      endInstruction: 431
+      startSourceChar: 894
+      endSourceChar: 913
+      line: 28
+      lineChar: 28
+      spanCodeSection: "{\r\n                "
+    - startInstruction: 432
+      endInstruction: 431
+      startSourceChar: 913
+      endSourceChar: 913
+      line: 29
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 432
+      endInstruction: 431
+      startSourceChar: 913
+      endSourceChar: 913
+      line: 29
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 432
+      endInstruction: 431
+      startSourceChar: 913
+      endSourceChar: 936
+      line: 29
+      lineChar: 16
+      spanCodeSection: SendCustomNetworkEvent(
+    - startInstruction: 432
+      endInstruction: 431
+      startSourceChar: 936
+      endSourceChar: 936
+      line: 29
+      lineChar: 39
+      spanCodeSection: 
+    - startInstruction: 432
+      endInstruction: 431
+      startSourceChar: 936
+      endSourceChar: 936
+      line: 29
+      lineChar: 39
+      spanCodeSection: 
+    - startInstruction: 432
+      endInstruction: 431
+      startSourceChar: 936
+      endSourceChar: 936
+      line: 29
+      lineChar: 39
+      spanCodeSection: 
+    - startInstruction: 432
+      endInstruction: 431
+      startSourceChar: 936
+      endSourceChar: 936
+      line: 29
+      lineChar: 39
+      spanCodeSection: 
+    - startInstruction: 432
+      endInstruction: 431
+      startSourceChar: 936
+      endSourceChar: 936
+      line: 29
+      lineChar: 39
+      spanCodeSection: 
+    - startInstruction: 432
+      endInstruction: 431
+      startSourceChar: 936
       endSourceChar: 940
       line: 29
-      lineChar: 28
-      spanCodeSection: "{\n                "
-    - startInstruction: 456
-      endInstruction: 455
-      startSourceChar: 940
-      endSourceChar: 940
-      line: 30
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 456
-      endInstruction: 455
-      startSourceChar: 940
-      endSourceChar: 940
-      line: 30
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 456
-      endInstruction: 455
-      startSourceChar: 940
-      endSourceChar: 963
-      line: 30
-      lineChar: 16
-      spanCodeSection: SendCustomNetworkEvent(
-    - startInstruction: 456
-      endInstruction: 455
-      startSourceChar: 963
-      endSourceChar: 963
-      line: 30
-      lineChar: 39
-      spanCodeSection: 
-    - startInstruction: 456
-      endInstruction: 455
-      startSourceChar: 963
-      endSourceChar: 963
-      line: 30
-      lineChar: 39
-      spanCodeSection: 
-    - startInstruction: 456
-      endInstruction: 455
-      startSourceChar: 963
-      endSourceChar: 963
-      line: 30
-      lineChar: 39
-      spanCodeSection: 
-    - startInstruction: 456
-      endInstruction: 455
-      startSourceChar: 963
-      endSourceChar: 963
-      line: 30
-      lineChar: 39
-      spanCodeSection: 
-    - startInstruction: 456
-      endInstruction: 455
-      startSourceChar: 963
-      endSourceChar: 963
-      line: 30
-      lineChar: 39
-      spanCodeSection: 
-    - startInstruction: 456
-      endInstruction: 455
-      startSourceChar: 963
-      endSourceChar: 967
-      line: 30
       lineChar: 39
       spanCodeSection: VRC.
-    - startInstruction: 456
-      endInstruction: 455
-      startSourceChar: 967
-      endSourceChar: 972
-      line: 30
+    - startInstruction: 432
+      endInstruction: 431
+      startSourceChar: 940
+      endSourceChar: 945
+      line: 29
       lineChar: 43
       spanCodeSection: Udon.
-    - startInstruction: 456
-      endInstruction: 455
-      startSourceChar: 972
-      endSourceChar: 979
-      line: 30
+    - startInstruction: 432
+      endInstruction: 431
+      startSourceChar: 945
+      endSourceChar: 952
+      line: 29
       lineChar: 48
       spanCodeSection: Common.
-    - startInstruction: 456
-      endInstruction: 455
-      startSourceChar: 979
-      endSourceChar: 990
-      line: 30
+    - startInstruction: 432
+      endInstruction: 431
+      startSourceChar: 952
+      endSourceChar: 963
+      line: 29
       lineChar: 55
       spanCodeSection: Interfaces.
-    - startInstruction: 456
-      endInstruction: 455
-      startSourceChar: 990
-      endSourceChar: 1009
-      line: 30
+    - startInstruction: 432
+      endInstruction: 431
+      startSourceChar: 963
+      endSourceChar: 982
+      line: 29
       lineChar: 66
       spanCodeSection: NetworkEventTarget.
-    - startInstruction: 456
-      endInstruction: 455
-      startSourceChar: 1009
-      endSourceChar: 1014
-      line: 30
+    - startInstruction: 432
+      endInstruction: 431
+      startSourceChar: 982
+      endSourceChar: 987
+      line: 29
       lineChar: 85
       spanCodeSection: 'All, '
-    - startInstruction: 456
-      endInstruction: 495
-      startSourceChar: 1014
-      endSourceChar: 1041
-      line: 30
+    - startInstruction: 432
+      endInstruction: 471
+      startSourceChar: 987
+      endSourceChar: 1015
+      line: 29
       lineChar: 90
-      spanCodeSection: "\"WriteBatu\");\n            }"
-    - startInstruction: 496
-      endInstruction: 495
-      startSourceChar: 1041
-      endSourceChar: 1045
-      line: 31
+      spanCodeSection: "\"WriteMaru\");\r\n            }"
+    - startInstruction: 472
+      endInstruction: 471
+      startSourceChar: 1015
+      endSourceChar: 1019
+      line: 30
       lineChar: 13
       spanCodeSection: else
-    - startInstruction: 496
-      endInstruction: 495
-      startSourceChar: 1045
-      endSourceChar: 1063
-      line: 31
+    - startInstruction: 472
+      endInstruction: 471
+      startSourceChar: 1019
+      endSourceChar: 1038
+      line: 30
       lineChar: 17
-      spanCodeSection: "{\n                "
-    - startInstruction: 496
-      endInstruction: 495
-      startSourceChar: 1063
-      endSourceChar: 1063
-      line: 32
+      spanCodeSection: "{\r\n                "
+    - startInstruction: 472
+      endInstruction: 471
+      startSourceChar: 1038
+      endSourceChar: 1038
+      line: 31
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 496
-      endInstruction: 495
-      startSourceChar: 1063
-      endSourceChar: 1063
-      line: 32
+    - startInstruction: 472
+      endInstruction: 471
+      startSourceChar: 1038
+      endSourceChar: 1038
+      line: 31
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 496
-      endInstruction: 495
-      startSourceChar: 1063
-      endSourceChar: 1086
-      line: 32
+    - startInstruction: 472
+      endInstruction: 471
+      startSourceChar: 1038
+      endSourceChar: 1061
+      line: 31
       lineChar: 16
       spanCodeSection: SendCustomNetworkEvent(
-    - startInstruction: 496
-      endInstruction: 495
-      startSourceChar: 1086
-      endSourceChar: 1086
-      line: 32
+    - startInstruction: 472
+      endInstruction: 471
+      startSourceChar: 1061
+      endSourceChar: 1061
+      line: 31
       lineChar: 39
       spanCodeSection: 
-    - startInstruction: 496
-      endInstruction: 495
-      startSourceChar: 1086
-      endSourceChar: 1086
-      line: 32
+    - startInstruction: 472
+      endInstruction: 471
+      startSourceChar: 1061
+      endSourceChar: 1061
+      line: 31
       lineChar: 39
       spanCodeSection: 
-    - startInstruction: 496
-      endInstruction: 495
-      startSourceChar: 1086
-      endSourceChar: 1086
-      line: 32
+    - startInstruction: 472
+      endInstruction: 471
+      startSourceChar: 1061
+      endSourceChar: 1061
+      line: 31
       lineChar: 39
       spanCodeSection: 
-    - startInstruction: 496
-      endInstruction: 495
-      startSourceChar: 1086
-      endSourceChar: 1086
-      line: 32
+    - startInstruction: 472
+      endInstruction: 471
+      startSourceChar: 1061
+      endSourceChar: 1061
+      line: 31
       lineChar: 39
       spanCodeSection: 
-    - startInstruction: 496
-      endInstruction: 495
-      startSourceChar: 1086
-      endSourceChar: 1086
-      line: 32
+    - startInstruction: 472
+      endInstruction: 471
+      startSourceChar: 1061
+      endSourceChar: 1061
+      line: 31
       lineChar: 39
       spanCodeSection: 
-    - startInstruction: 496
-      endInstruction: 495
-      startSourceChar: 1086
-      endSourceChar: 1090
-      line: 32
+    - startInstruction: 472
+      endInstruction: 471
+      startSourceChar: 1061
+      endSourceChar: 1065
+      line: 31
       lineChar: 39
       spanCodeSection: VRC.
-    - startInstruction: 496
-      endInstruction: 495
-      startSourceChar: 1090
-      endSourceChar: 1095
-      line: 32
+    - startInstruction: 472
+      endInstruction: 471
+      startSourceChar: 1065
+      endSourceChar: 1070
+      line: 31
       lineChar: 43
       spanCodeSection: Udon.
-    - startInstruction: 496
-      endInstruction: 495
-      startSourceChar: 1095
-      endSourceChar: 1102
-      line: 32
+    - startInstruction: 472
+      endInstruction: 471
+      startSourceChar: 1070
+      endSourceChar: 1077
+      line: 31
       lineChar: 48
       spanCodeSection: Common.
-    - startInstruction: 496
-      endInstruction: 495
-      startSourceChar: 1102
-      endSourceChar: 1113
-      line: 32
+    - startInstruction: 472
+      endInstruction: 471
+      startSourceChar: 1077
+      endSourceChar: 1088
+      line: 31
       lineChar: 55
       spanCodeSection: Interfaces.
-    - startInstruction: 496
-      endInstruction: 495
-      startSourceChar: 1113
-      endSourceChar: 1132
-      line: 32
+    - startInstruction: 472
+      endInstruction: 471
+      startSourceChar: 1088
+      endSourceChar: 1107
+      line: 31
       lineChar: 66
       spanCodeSection: NetworkEventTarget.
-    - startInstruction: 496
-      endInstruction: 495
-      startSourceChar: 1132
-      endSourceChar: 1137
-      line: 32
+    - startInstruction: 472
+      endInstruction: 471
+      startSourceChar: 1107
+      endSourceChar: 1112
+      line: 31
       lineChar: 85
       spanCodeSection: 'All, '
-    - startInstruction: 496
-      endInstruction: 547
-      startSourceChar: 1137
-      endSourceChar: 1184
-      line: 32
+    - startInstruction: 472
+      endInstruction: 523
+      startSourceChar: 1112
+      endSourceChar: 1163
+      line: 31
       lineChar: 90
-      spanCodeSection: "\"WriteMaru\");\n            }\n        }\n\n        "
-    - startInstruction: 548
-      endInstruction: 555
-      startSourceChar: 1184
-      endSourceChar: 1216
+      spanCodeSection: "\"WriteBatu\");\r\n            }\r\n        }\r\n\r\n        "
+    - startInstruction: 524
+      endInstruction: 531
+      startSourceChar: 1163
+      endSourceChar: 1196
+      line: 35
+      lineChar: 8
+      spanCodeSection: "public void WriteMaru()\r\n        "
+    - startInstruction: 532
+      endInstruction: 531
+      startSourceChar: 1196
+      endSourceChar: 1211
       line: 36
       lineChar: 8
-      spanCodeSection: "public void WriteMaru()\n        "
-    - startInstruction: 556
-      endInstruction: 555
-      startSourceChar: 1216
-      endSourceChar: 1230
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 532
+      endInstruction: 531
+      startSourceChar: 1211
+      endSourceChar: 1211
       line: 37
-      lineChar: 8
-      spanCodeSection: "{\n            "
-    - startInstruction: 556
-      endInstruction: 555
-      startSourceChar: 1230
-      endSourceChar: 1230
-      line: 38
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 556
-      endInstruction: 555
-      startSourceChar: 1230
-      endSourceChar: 1230
-      line: 38
+    - startInstruction: 532
+      endInstruction: 531
+      startSourceChar: 1211
+      endSourceChar: 1211
+      line: 37
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 556
-      endInstruction: 555
-      startSourceChar: 1230
-      endSourceChar: 1230
-      line: 38
+    - startInstruction: 532
+      endInstruction: 531
+      startSourceChar: 1211
+      endSourceChar: 1211
+      line: 37
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 556
-      endInstruction: 555
-      startSourceChar: 1230
-      endSourceChar: 1235
-      line: 38
+    - startInstruction: 532
+      endInstruction: 531
+      startSourceChar: 1211
+      endSourceChar: 1216
+      line: 37
       lineChar: 12
       spanCodeSection: maru.
-    - startInstruction: 556
-      endInstruction: 555
-      startSourceChar: 1235
-      endSourceChar: 1245
-      line: 38
+    - startInstruction: 532
+      endInstruction: 531
+      startSourceChar: 1216
+      endSourceChar: 1226
+      line: 37
       lineChar: 17
       spanCodeSection: SetActive(
+    - startInstruction: 532
+      endInstruction: 555
+      startSourceChar: 1226
+      endSourceChar: 1246
+      line: 37
+      lineChar: 27
+      spanCodeSection: "true);\r\n            "
+    - startInstruction: 556
+      endInstruction: 555
+      startSourceChar: 1246
+      endSourceChar: 1246
+      line: 38
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 556
+      endInstruction: 555
+      startSourceChar: 1246
+      endSourceChar: 1246
+      line: 38
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 556
+      endInstruction: 555
+      startSourceChar: 1246
+      endSourceChar: 1246
+      line: 38
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 556
+      endInstruction: 555
+      startSourceChar: 1246
+      endSourceChar: 1253
+      line: 38
+      lineChar: 12
+      spanCodeSection: parent.
+    - startInstruction: 556
+      endInstruction: 555
+      startSourceChar: 1253
+      endSourceChar: 1269
+      line: 38
+      lineChar: 19
+      spanCodeSection: SendCustomEvent(
     - startInstruction: 556
       endInstruction: 599
-      startSourceChar: 1245
-      endSourceChar: 1271
+      startSourceChar: 1269
+      endSourceChar: 1308
       line: 38
-      lineChar: 27
-      spanCodeSection: "true);\n        }\n\n        "
+      lineChar: 35
+      spanCodeSection: "\"GameEndCheck\");\r\n        }\r\n\r\n        "
     - startInstruction: 600
       endInstruction: 607
-      startSourceChar: 1271
-      endSourceChar: 1303
+      startSourceChar: 1308
+      endSourceChar: 1341
       line: 41
       lineChar: 8
-      spanCodeSection: "public void WriteBatu()\n        "
+      spanCodeSection: "public void WriteBatu()\r\n        "
     - startInstruction: 608
       endInstruction: 607
-      startSourceChar: 1303
-      endSourceChar: 1317
+      startSourceChar: 1341
+      endSourceChar: 1356
       line: 42
       lineChar: 8
-      spanCodeSection: "{\n            "
+      spanCodeSection: "{\r\n            "
     - startInstruction: 608
       endInstruction: 607
-      startSourceChar: 1317
-      endSourceChar: 1317
+      startSourceChar: 1356
+      endSourceChar: 1356
       line: 43
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 608
       endInstruction: 607
-      startSourceChar: 1317
-      endSourceChar: 1317
+      startSourceChar: 1356
+      endSourceChar: 1356
       line: 43
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 608
       endInstruction: 607
-      startSourceChar: 1317
-      endSourceChar: 1317
+      startSourceChar: 1356
+      endSourceChar: 1356
       line: 43
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 608
       endInstruction: 607
-      startSourceChar: 1317
-      endSourceChar: 1322
+      startSourceChar: 1356
+      endSourceChar: 1361
       line: 43
       lineChar: 12
       spanCodeSection: batu.
     - startInstruction: 608
       endInstruction: 607
-      startSourceChar: 1322
-      endSourceChar: 1332
+      startSourceChar: 1361
+      endSourceChar: 1371
       line: 43
       lineChar: 17
       spanCodeSection: SetActive(
     - startInstruction: 608
-      endInstruction: 608
-      startSourceChar: 1332
-      endSourceChar: 1332
+      endInstruction: 631
+      startSourceChar: 1371
+      endSourceChar: 1391
       line: 43
       lineChar: 27
+      spanCodeSection: "true);\r\n            "
+    - startInstruction: 632
+      endInstruction: 631
+      startSourceChar: 1391
+      endSourceChar: 1391
+      line: 44
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 632
+      endInstruction: 631
+      startSourceChar: 1391
+      endSourceChar: 1391
+      line: 44
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 632
+      endInstruction: 631
+      startSourceChar: 1391
+      endSourceChar: 1391
+      line: 44
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 632
+      endInstruction: 631
+      startSourceChar: 1391
+      endSourceChar: 1398
+      line: 44
+      lineChar: 12
+      spanCodeSection: parent.
+    - startInstruction: 632
+      endInstruction: 631
+      startSourceChar: 1398
+      endSourceChar: 1414
+      line: 44
+      lineChar: 19
+      spanCodeSection: SendCustomEvent(
+    - startInstruction: 632
+      endInstruction: 632
+      startSourceChar: 1414
+      endSourceChar: 1414
+      line: 44
+      lineChar: 35
       spanCodeSection: 
   hasInteractEvent: 1
   serializationData:

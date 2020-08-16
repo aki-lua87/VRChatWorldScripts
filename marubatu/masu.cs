@@ -17,10 +17,9 @@ namespace aki_lua87.UdonScripts.marubatu
             if(maru.activeSelf || batu.activeSelf){
                 return;
             }
-            parent.SendCustomEvent("GameEndChaeck");
             var isGameEnd = (bool) parent.GetProgramVariable("isGameEnd");
             if(isGameEnd){
-                // TODO: ゲーム終了してたら書けない
+                // ゲーム終了してたら書けないように
                 return;
             }
             parent.SendCustomEvent("NextFigure");
@@ -28,20 +27,22 @@ namespace aki_lua87.UdonScripts.marubatu
 
             // 描写
             if(isFigureMaru){
-                SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "WriteBatu");
-            }else{
                 SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "WriteMaru");
+            }else{
+                SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "WriteBatu");
             }
         }
 
         public void WriteMaru()
         {
             maru.SetActive(true);
+            parent.SendCustomEvent("GameEndCheck");
         }
 
         public void WriteBatu()
         {
             batu.SetActive(true);
+            parent.SendCustomEvent("GameEndCheck");
         }
     }
 }

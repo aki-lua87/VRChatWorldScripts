@@ -59,212 +59,203 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 6
-      endSourceChar: 17
+      endSourceChar: 18
       line: 0
       lineChar: 6
-      spanCodeSection: 'UdonSharp;
-
-'
+      spanCodeSection: "UdonSharp;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 17
-      endSourceChar: 23
+      startSourceChar: 18
+      endSourceChar: 24
       line: 1
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 23
-      endSourceChar: 36
+      startSourceChar: 24
+      endSourceChar: 38
       line: 1
       lineChar: 6
-      spanCodeSection: 'UnityEngine;
-
-'
+      spanCodeSection: "UnityEngine;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 36
-      endSourceChar: 42
+      startSourceChar: 38
+      endSourceChar: 44
       line: 2
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 42
-      endSourceChar: 42
+      startSourceChar: 44
+      endSourceChar: 44
       line: 2
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 42
-      endSourceChar: 46
+      startSourceChar: 44
+      endSourceChar: 48
       line: 2
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 46
-      endSourceChar: 55
+      startSourceChar: 48
+      endSourceChar: 58
       line: 2
       lineChar: 10
-      spanCodeSection: 'SDKBase;
-
-'
+      spanCodeSection: "SDKBase;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 55
-      endSourceChar: 61
+      startSourceChar: 58
+      endSourceChar: 64
       line: 3
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 61
-      endSourceChar: 61
+      startSourceChar: 64
+      endSourceChar: 64
       line: 3
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 61
-      endSourceChar: 65
+      startSourceChar: 64
+      endSourceChar: 68
       line: 3
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 65
-      endSourceChar: 72
+      startSourceChar: 68
+      endSourceChar: 77
       line: 3
       lineChar: 10
-      spanCodeSection: 'Udon;
-
-
-'
+      spanCodeSection: "Udon;\r\n\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 72
-      endSourceChar: 119
+      startSourceChar: 77
+      endSourceChar: 126
       line: 5
       lineChar: 0
-      spanCodeSection: "namespace aki_lua87.UdonScripts.marubatu\n{\n    "
+      spanCodeSection: "namespace aki_lua87.UdonScripts.marubatu\r\n{\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 119
-      endSourceChar: 138
+      startSourceChar: 126
+      endSourceChar: 145
       line: 7
       lineChar: 4
       spanCodeSection: 'public class reset '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 138
-      endSourceChar: 140
+      startSourceChar: 145
+      endSourceChar: 147
       line: 7
       lineChar: 23
       spanCodeSection: ': '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 140
-      endSourceChar: 140
+      startSourceChar: 147
+      endSourceChar: 147
       line: 7
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 140
-      endSourceChar: 173
+      startSourceChar: 147
+      endSourceChar: 182
       line: 7
       lineChar: 25
-      spanCodeSection: "UdonSharpBehaviour\n    {\n        "
+      spanCodeSection: "UdonSharpBehaviour\r\n    {\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 173
-      endSourceChar: 174
+      startSourceChar: 182
+      endSourceChar: 183
       line: 9
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 174
-      endSourceChar: 174
+      startSourceChar: 183
+      endSourceChar: 183
       line: 9
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 174
-      endSourceChar: 198
+      startSourceChar: 183
+      endSourceChar: 207
       line: 9
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 198
-      endSourceChar: 198
+      startSourceChar: 207
+      endSourceChar: 207
       line: 9
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 198
-      endSourceChar: 228
+      startSourceChar: 207
+      endSourceChar: 238
       line: 9
       lineChar: 33
-      spanCodeSection: "UdonBehaviour parent;\n        "
+      spanCodeSection: "UdonBehaviour parent;\r\n        "
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 228
-      endSourceChar: 268
+      startSourceChar: 238
+      endSourceChar: 279
       line: 10
       lineChar: 8
-      spanCodeSection: "public override void Interact()\n        "
+      spanCodeSection: "public override void Interact()\r\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 268
-      endSourceChar: 282
+      startSourceChar: 279
+      endSourceChar: 294
       line: 11
       lineChar: 8
-      spanCodeSection: "{\n            "
+      spanCodeSection: "{\r\n            "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 282
-      endSourceChar: 282
+      startSourceChar: 294
+      endSourceChar: 294
       line: 12
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 282
-      endSourceChar: 282
+      startSourceChar: 294
+      endSourceChar: 294
       line: 12
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 282
-      endSourceChar: 282
+      startSourceChar: 294
+      endSourceChar: 294
       line: 12
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 282
-      endSourceChar: 289
+      startSourceChar: 294
+      endSourceChar: 301
       line: 12
       lineChar: 12
       spanCodeSection: parent.
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 289
-      endSourceChar: 305
+      startSourceChar: 301
+      endSourceChar: 317
       line: 12
       lineChar: 19
       spanCodeSection: SendCustomEvent(
     - startInstruction: 8
       endInstruction: 8
-      startSourceChar: 305
-      endSourceChar: 305
+      startSourceChar: 317
+      endSourceChar: 317
       line: 12
       lineChar: 35
       spanCodeSection: 
