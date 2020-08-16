@@ -27,7 +27,7 @@ namespace aki_lua87.UdonScripts.marubatu
             var isFigureMaru = (bool) parent.GetProgramVariable("isFigureMaru");
 
             // 描写
-            if(!isFigureMaru){
+            if(isFigureMaru){
                 SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "WriteBatu");
             }else{
                 SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "WriteMaru");
