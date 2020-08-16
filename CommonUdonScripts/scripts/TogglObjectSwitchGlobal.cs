@@ -38,7 +38,6 @@ public class TogglObjectSwitchGlobal : UdonSharpBehaviour
             SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "SwitchON");
             isSwitchedOnSync = true;
         }
-        
     }
 
     public void SwitchON()

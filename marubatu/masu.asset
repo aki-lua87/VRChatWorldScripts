@@ -1,0 +1,1285 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
+  m_Name: masu
+  m_EditorClassIdentifier: 
+  serializedUdonProgramAsset: {fileID: 11400000, guid: bb9f5e616f008744b8081701b839e529,
+    type: 2}
+  udonAssembly: ".data_start\n\n    .export maru\n    .export batu\n    .export parent\n\n
+    \   __refl_const_intnl_udonTypeID: %SystemInt64, null\n    __refl_const_intnl_udonTypeName:
+    %SystemString, null\n    batu: %UnityEngineGameObject, null\n    maru: %UnityEngineGameObject,
+    null\n    parent: %VRCUdonUdonBehaviour, null\n    __0_this_intnl_aki_lua87UdonScriptsmarubatumasu:
+    %VRCUdonUdonBehaviour, this\n    __0_isFigureMaru_Boolean: %SystemBoolean, null\n
+    \   __0_isGameEnd_Boolean: %SystemBoolean, null\n    __0_const_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget:
+    %VRCUdonCommonInterfacesNetworkEventTarget, null\n    __0_const_intnl_SystemString:
+    %SystemString, null\n    __1_const_intnl_SystemString: %SystemString, null\n    __2_const_intnl_SystemString:
+    %SystemString, null\n    __3_const_intnl_SystemString: %SystemString, null\n    __4_const_intnl_SystemString:
+    %SystemString, null\n    __5_const_intnl_SystemString: %SystemString, null\n    __0_const_intnl_SystemUInt32:
+    %SystemUInt32, null\n    __0_intnl_SystemBoolean: %SystemBoolean, null\n    __1_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __2_intnl_SystemBoolean: %SystemBoolean, null\n    __3_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __4_intnl_SystemBoolean: %SystemBoolean, null\n    __5_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __6_intnl_SystemBoolean: %SystemBoolean, null\n    __7_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __0_intnl_SystemObject: %SystemObject, null\n    __1_intnl_SystemObject:
+    %SystemObject, null\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\n\n.data_end\n\n
+    \       \n         # using UdonSharp;\n        \n         # using UnityEngine;\n
+    \       \n         # using VRC.SDKBase;\n        \n         # using VRC.Udon;\n
+    \       \n         # namespace aki_lua87.UdonScripts.marubatu\n        \n         #
+    public class masu : UdonSharpBehaviour\n.code_start\n        \n         # [SerializeField]
+    private GameObject maru;\n        \n         # [SerializeField] private GameObject
+    batu;\n        \n         # [SerializeField] private UdonBehaviour parent;\n        \n
+    \        # public override void Interact()\n    .export _interact\n        \n
+    \   _interact:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n        \n
+    \        # {\n        \n         # if(maru.activeSelf || batu.activeSelf){\n        PUSH,
+    maru\n        PUSH, __1_intnl_SystemBoolean\n        EXTERN, \"UnityEngineGameObject.__get_activeSelf__SystemBoolean\"\n
+    \       PUSH, __1_intnl_SystemBoolean\n        PUSH, __0_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __0_intnl_SystemBoolean\n        PUSH, __2_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __2_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000000A8\n        PUSH,
+    batu\n        PUSH, __3_intnl_SystemBoolean\n        EXTERN, \"UnityEngineGameObject.__get_activeSelf__SystemBoolean\"\n
+    \       PUSH, __0_intnl_SystemBoolean\n        PUSH, __3_intnl_SystemBoolean\n
+    \       PUSH, __4_intnl_SystemBoolean\n        EXTERN, \"SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __4_intnl_SystemBoolean\n        PUSH, __0_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __0_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000000CC\n
+    \       \n         # return;\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit
+    return sequence\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n         # parent.SendCustomEvent(\"GameEndChaeck\");\n        PUSH,
+    parent\n        PUSH, __0_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       \n         # var isGameEnd = (bool) parent.GetProgramVariable(\"isGameEnd\");\n
+    \       PUSH, parent\n        PUSH, __1_const_intnl_SystemString\n        PUSH,
+    __0_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
+    \       PUSH, __0_intnl_SystemObject\n        PUSH, __5_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemConvert.__ToBoolean__SystemObject__SystemBoolean\"\n        PUSH,
+    __5_intnl_SystemBoolean\n        PUSH, __0_isGameEnd_Boolean\n        COPY\n        \n
+    \        # if(isGameEnd){\n        PUSH, __0_isGameEnd_Boolean\n        JUMP_IF_FALSE,
+    0x00000154\n        \n         # return;\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Explicit return sequence\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n         # parent.SendCustomEvent(\"NextFigure\");\n        PUSH, parent\n
+    \       PUSH, __2_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       \n         # var isFigureMaru = (bool) parent.GetProgramVariable(\"isFigureMaru\");\n
+    \       PUSH, parent\n        PUSH, __3_const_intnl_SystemString\n        PUSH,
+    __1_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
+    \       PUSH, __1_intnl_SystemObject\n        PUSH, __6_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemConvert.__ToBoolean__SystemObject__SystemBoolean\"\n        PUSH,
+    __6_intnl_SystemBoolean\n        PUSH, __0_isFigureMaru_Boolean\n        COPY\n
+    \       \n         # if(!isFigureMaru){\n        PUSH, __0_isFigureMaru_Boolean\n
+    \       PUSH, __7_intnl_SystemBoolean\n        EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __7_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000208\n        \n
+    \        # SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All,
+    \"WriteBatu\");\n        PUSH, __0_this_intnl_aki_lua87UdonScriptsmarubatumasu\n
+    \       PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\n        PUSH,
+    __4_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\n
+    \       JUMP, 0x00000228\n        \n         # }else{\n        \n         # SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All,
+    \"WriteMaru\");\n        PUSH, __0_this_intnl_aki_lua87UdonScriptsmarubatumasu\n
+    \       PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\n        PUSH,
+    __5_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    public void WriteMaru()\n    .export WriteMaru\n        \n    WriteMaru:\n        \n
+    \       PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n        \n
+    \        # maru.SetActive(true);\n        PUSH, maru\n        PUSH, __0_const_intnl_SystemBoolean\n
+    \       EXTERN, \"UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    public void WriteBatu()\n    .export WriteBatu\n        \n    WriteBatu:\n        \n
+    \       PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n        \n
+    \        # batu.SetActive(true);\n        PUSH, batu\n        PUSH, __0_const_intnl_SystemBoolean\n
+    \       EXTERN, \"UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n.code_end\n"
+  assemblyError: 
+  sourceCsScript: {fileID: 11500000, guid: 955a39cd239339d44b7fcb507c1ba0f9, type: 3}
+  behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
+  compileErrors: []
+  debugInfo:
+    serializedDebugSpans:
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 0
+      endSourceChar: 0
+      line: 0
+      lineChar: 0
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 0
+      endSourceChar: 0
+      line: 0
+      lineChar: 0
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 0
+      endSourceChar: 6
+      line: 0
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 6
+      endSourceChar: 17
+      line: 0
+      lineChar: 6
+      spanCodeSection: 'UdonSharp;
+
+'
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 17
+      endSourceChar: 23
+      line: 1
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 23
+      endSourceChar: 36
+      line: 1
+      lineChar: 6
+      spanCodeSection: 'UnityEngine;
+
+'
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 36
+      endSourceChar: 42
+      line: 2
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 42
+      endSourceChar: 42
+      line: 2
+      lineChar: 6
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 42
+      endSourceChar: 46
+      line: 2
+      lineChar: 6
+      spanCodeSection: VRC.
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 46
+      endSourceChar: 55
+      line: 2
+      lineChar: 10
+      spanCodeSection: 'SDKBase;
+
+'
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 55
+      endSourceChar: 61
+      line: 3
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 61
+      endSourceChar: 61
+      line: 3
+      lineChar: 6
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 61
+      endSourceChar: 65
+      line: 3
+      lineChar: 6
+      spanCodeSection: VRC.
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 65
+      endSourceChar: 72
+      line: 3
+      lineChar: 10
+      spanCodeSection: 'Udon;
+
+
+'
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 72
+      endSourceChar: 119
+      line: 5
+      lineChar: 0
+      spanCodeSection: "namespace aki_lua87.UdonScripts.marubatu\n{\n    "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 119
+      endSourceChar: 137
+      line: 7
+      lineChar: 4
+      spanCodeSection: 'public class masu '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 137
+      endSourceChar: 139
+      line: 7
+      lineChar: 22
+      spanCodeSection: ': '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 139
+      endSourceChar: 139
+      line: 7
+      lineChar: 24
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 139
+      endSourceChar: 194
+      line: 7
+      lineChar: 24
+      spanCodeSection: "UdonSharpBehaviour\n    {\n        // \u56F3\u5F62\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8\u53C2\u7167\n
+        \       "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 194
+      endSourceChar: 195
+      line: 10
+      lineChar: 8
+      spanCodeSection: '['
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 195
+      endSourceChar: 195
+      line: 10
+      lineChar: 9
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 195
+      endSourceChar: 219
+      line: 10
+      lineChar: 9
+      spanCodeSection: 'SerializeField] private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 219
+      endSourceChar: 219
+      line: 10
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 219
+      endSourceChar: 244
+      line: 10
+      lineChar: 33
+      spanCodeSection: "GameObject maru;\n        "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 244
+      endSourceChar: 245
+      line: 11
+      lineChar: 8
+      spanCodeSection: '['
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 245
+      endSourceChar: 245
+      line: 11
+      lineChar: 9
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 245
+      endSourceChar: 269
+      line: 11
+      lineChar: 9
+      spanCodeSection: 'SerializeField] private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 269
+      endSourceChar: 269
+      line: 11
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 269
+      endSourceChar: 294
+      line: 11
+      lineChar: 33
+      spanCodeSection: "GameObject batu;\n        "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 294
+      endSourceChar: 295
+      line: 12
+      lineChar: 8
+      spanCodeSection: '['
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 295
+      endSourceChar: 295
+      line: 12
+      lineChar: 9
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 295
+      endSourceChar: 319
+      line: 12
+      lineChar: 9
+      spanCodeSection: 'SerializeField] private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 319
+      endSourceChar: 319
+      line: 12
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 319
+      endSourceChar: 349
+      line: 12
+      lineChar: 33
+      spanCodeSection: "UdonBehaviour parent;\n        "
+    - startInstruction: 0
+      endInstruction: 7
+      startSourceChar: 349
+      endSourceChar: 389
+      line: 13
+      lineChar: 8
+      spanCodeSection: "public override void Interact()\n        "
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 389
+      endSourceChar: 434
+      line: 14
+      lineChar: 8
+      spanCodeSection: "{\n            // \u66F8\u304D\u8FBC\u307E\u308C\u3066\u3044\u305F\u5834\u5408\u306F\u633F\u5165\u4E0D\u53EF\n
+        \           "
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 434
+      endSourceChar: 437
+      line: 16
+      lineChar: 12
+      spanCodeSection: if(
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 437
+      endSourceChar: 437
+      line: 16
+      lineChar: 15
+      spanCodeSection: 
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 437
+      endSourceChar: 437
+      line: 16
+      lineChar: 15
+      spanCodeSection: 
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 437
+      endSourceChar: 442
+      line: 16
+      lineChar: 15
+      spanCodeSection: maru.
+    - startInstruction: 8
+      endInstruction: 91
+      startSourceChar: 442
+      endSourceChar: 456
+      line: 16
+      lineChar: 20
+      spanCodeSection: 'activeSelf || '
+    - startInstruction: 92
+      endInstruction: 91
+      startSourceChar: 456
+      endSourceChar: 456
+      line: 16
+      lineChar: 34
+      spanCodeSection: 
+    - startInstruction: 92
+      endInstruction: 91
+      startSourceChar: 456
+      endSourceChar: 461
+      line: 16
+      lineChar: 34
+      spanCodeSection: batu.
+    - startInstruction: 92
+      endInstruction: 183
+      startSourceChar: 461
+      endSourceChar: 472
+      line: 16
+      lineChar: 39
+      spanCodeSection: activeSelf)
+    - startInstruction: 184
+      endInstruction: 183
+      startSourceChar: 472
+      endSourceChar: 490
+      line: 16
+      lineChar: 50
+      spanCodeSection: "{\n                "
+    - startInstruction: 184
+      endInstruction: 203
+      startSourceChar: 490
+      endSourceChar: 524
+      line: 17
+      lineChar: 16
+      spanCodeSection: "return;\n            }\n            "
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 524
+      endSourceChar: 524
+      line: 19
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 524
+      endSourceChar: 524
+      line: 19
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 524
+      endSourceChar: 524
+      line: 19
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 524
+      endSourceChar: 531
+      line: 19
+      lineChar: 12
+      spanCodeSection: parent.
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 531
+      endSourceChar: 547
+      line: 19
+      lineChar: 19
+      spanCodeSection: SendCustomEvent(
+    - startInstruction: 204
+      endInstruction: 227
+      startSourceChar: 547
+      endSourceChar: 577
+      line: 19
+      lineChar: 35
+      spanCodeSection: "\"GameEndChaeck\");\n            "
+    - startInstruction: 228
+      endInstruction: 227
+      startSourceChar: 577
+      endSourceChar: 577
+      line: 20
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 228
+      endInstruction: 227
+      startSourceChar: 577
+      endSourceChar: 577
+      line: 20
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 228
+      endInstruction: 227
+      startSourceChar: 577
+      endSourceChar: 591
+      line: 20
+      lineChar: 12
+      spanCodeSection: 'var isGameEnd '
+    - startInstruction: 228
+      endInstruction: 227
+      startSourceChar: 591
+      endSourceChar: 593
+      line: 20
+      lineChar: 26
+      spanCodeSection: '= '
+    - startInstruction: 228
+      endInstruction: 227
+      startSourceChar: 593
+      endSourceChar: 600
+      line: 20
+      lineChar: 28
+      spanCodeSection: '(bool) '
+    - startInstruction: 228
+      endInstruction: 227
+      startSourceChar: 600
+      endSourceChar: 600
+      line: 20
+      lineChar: 35
+      spanCodeSection: 
+    - startInstruction: 228
+      endInstruction: 227
+      startSourceChar: 600
+      endSourceChar: 600
+      line: 20
+      lineChar: 35
+      spanCodeSection: 
+    - startInstruction: 228
+      endInstruction: 227
+      startSourceChar: 600
+      endSourceChar: 607
+      line: 20
+      lineChar: 35
+      spanCodeSection: parent.
+    - startInstruction: 228
+      endInstruction: 227
+      startSourceChar: 607
+      endSourceChar: 626
+      line: 20
+      lineChar: 42
+      spanCodeSection: GetProgramVariable(
+    - startInstruction: 228
+      endInstruction: 303
+      startSourceChar: 626
+      endSourceChar: 652
+      line: 20
+      lineChar: 61
+      spanCodeSection: "\"isGameEnd\");\n            "
+    - startInstruction: 304
+      endInstruction: 303
+      startSourceChar: 652
+      endSourceChar: 655
+      line: 21
+      lineChar: 12
+      spanCodeSection: if(
+    - startInstruction: 304
+      endInstruction: 319
+      startSourceChar: 655
+      endSourceChar: 665
+      line: 21
+      lineChar: 15
+      spanCodeSection: isGameEnd)
+    - startInstruction: 320
+      endInstruction: 319
+      startSourceChar: 665
+      endSourceChar: 722
+      line: 21
+      lineChar: 25
+      spanCodeSection: "{\n                // TODO: \u30B2\u30FC\u30E0\u7D42\u4E86\u3057\u3066\u305F\u3089\u66F8\u3051\u306A\u3044\n
+        \               "
+    - startInstruction: 320
+      endInstruction: 339
+      startSourceChar: 722
+      endSourceChar: 756
+      line: 23
+      lineChar: 16
+      spanCodeSection: "return;\n            }\n            "
+    - startInstruction: 340
+      endInstruction: 339
+      startSourceChar: 756
+      endSourceChar: 756
+      line: 25
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 340
+      endInstruction: 339
+      startSourceChar: 756
+      endSourceChar: 756
+      line: 25
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 340
+      endInstruction: 339
+      startSourceChar: 756
+      endSourceChar: 756
+      line: 25
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 340
+      endInstruction: 339
+      startSourceChar: 756
+      endSourceChar: 763
+      line: 25
+      lineChar: 12
+      spanCodeSection: parent.
+    - startInstruction: 340
+      endInstruction: 339
+      startSourceChar: 763
+      endSourceChar: 779
+      line: 25
+      lineChar: 19
+      spanCodeSection: SendCustomEvent(
+    - startInstruction: 340
+      endInstruction: 363
+      startSourceChar: 779
+      endSourceChar: 806
+      line: 25
+      lineChar: 35
+      spanCodeSection: "\"NextFigure\");\n            "
+    - startInstruction: 364
+      endInstruction: 363
+      startSourceChar: 806
+      endSourceChar: 806
+      line: 26
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 364
+      endInstruction: 363
+      startSourceChar: 806
+      endSourceChar: 806
+      line: 26
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 364
+      endInstruction: 363
+      startSourceChar: 806
+      endSourceChar: 823
+      line: 26
+      lineChar: 12
+      spanCodeSection: 'var isFigureMaru '
+    - startInstruction: 364
+      endInstruction: 363
+      startSourceChar: 823
+      endSourceChar: 825
+      line: 26
+      lineChar: 29
+      spanCodeSection: '= '
+    - startInstruction: 364
+      endInstruction: 363
+      startSourceChar: 825
+      endSourceChar: 832
+      line: 26
+      lineChar: 31
+      spanCodeSection: '(bool) '
+    - startInstruction: 364
+      endInstruction: 363
+      startSourceChar: 832
+      endSourceChar: 832
+      line: 26
+      lineChar: 38
+      spanCodeSection: 
+    - startInstruction: 364
+      endInstruction: 363
+      startSourceChar: 832
+      endSourceChar: 832
+      line: 26
+      lineChar: 38
+      spanCodeSection: 
+    - startInstruction: 364
+      endInstruction: 363
+      startSourceChar: 832
+      endSourceChar: 839
+      line: 26
+      lineChar: 38
+      spanCodeSection: parent.
+    - startInstruction: 364
+      endInstruction: 363
+      startSourceChar: 839
+      endSourceChar: 858
+      line: 26
+      lineChar: 45
+      spanCodeSection: GetProgramVariable(
+    - startInstruction: 364
+      endInstruction: 439
+      startSourceChar: 858
+      endSourceChar: 906
+      line: 26
+      lineChar: 64
+      spanCodeSection: "\"isFigureMaru\");\n\n            // \u63CF\u5199\n            "
+    - startInstruction: 440
+      endInstruction: 439
+      startSourceChar: 906
+      endSourceChar: 909
+      line: 29
+      lineChar: 12
+      spanCodeSection: if(
+    - startInstruction: 440
+      endInstruction: 439
+      startSourceChar: 909
+      endSourceChar: 910
+      line: 29
+      lineChar: 15
+      spanCodeSection: '!'
+    - startInstruction: 440
+      endInstruction: 479
+      startSourceChar: 910
+      endSourceChar: 923
+      line: 29
+      lineChar: 16
+      spanCodeSection: isFigureMaru)
+    - startInstruction: 480
+      endInstruction: 479
+      startSourceChar: 923
+      endSourceChar: 941
+      line: 29
+      lineChar: 29
+      spanCodeSection: "{\n                "
+    - startInstruction: 480
+      endInstruction: 479
+      startSourceChar: 941
+      endSourceChar: 941
+      line: 30
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 480
+      endInstruction: 479
+      startSourceChar: 941
+      endSourceChar: 941
+      line: 30
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 480
+      endInstruction: 479
+      startSourceChar: 941
+      endSourceChar: 964
+      line: 30
+      lineChar: 16
+      spanCodeSection: SendCustomNetworkEvent(
+    - startInstruction: 480
+      endInstruction: 479
+      startSourceChar: 964
+      endSourceChar: 964
+      line: 30
+      lineChar: 39
+      spanCodeSection: 
+    - startInstruction: 480
+      endInstruction: 479
+      startSourceChar: 964
+      endSourceChar: 964
+      line: 30
+      lineChar: 39
+      spanCodeSection: 
+    - startInstruction: 480
+      endInstruction: 479
+      startSourceChar: 964
+      endSourceChar: 964
+      line: 30
+      lineChar: 39
+      spanCodeSection: 
+    - startInstruction: 480
+      endInstruction: 479
+      startSourceChar: 964
+      endSourceChar: 964
+      line: 30
+      lineChar: 39
+      spanCodeSection: 
+    - startInstruction: 480
+      endInstruction: 479
+      startSourceChar: 964
+      endSourceChar: 964
+      line: 30
+      lineChar: 39
+      spanCodeSection: 
+    - startInstruction: 480
+      endInstruction: 479
+      startSourceChar: 964
+      endSourceChar: 968
+      line: 30
+      lineChar: 39
+      spanCodeSection: VRC.
+    - startInstruction: 480
+      endInstruction: 479
+      startSourceChar: 968
+      endSourceChar: 973
+      line: 30
+      lineChar: 43
+      spanCodeSection: Udon.
+    - startInstruction: 480
+      endInstruction: 479
+      startSourceChar: 973
+      endSourceChar: 980
+      line: 30
+      lineChar: 48
+      spanCodeSection: Common.
+    - startInstruction: 480
+      endInstruction: 479
+      startSourceChar: 980
+      endSourceChar: 991
+      line: 30
+      lineChar: 55
+      spanCodeSection: Interfaces.
+    - startInstruction: 480
+      endInstruction: 479
+      startSourceChar: 991
+      endSourceChar: 1010
+      line: 30
+      lineChar: 66
+      spanCodeSection: NetworkEventTarget.
+    - startInstruction: 480
+      endInstruction: 479
+      startSourceChar: 1010
+      endSourceChar: 1015
+      line: 30
+      lineChar: 85
+      spanCodeSection: 'All, '
+    - startInstruction: 480
+      endInstruction: 519
+      startSourceChar: 1015
+      endSourceChar: 1042
+      line: 30
+      lineChar: 90
+      spanCodeSection: "\"WriteBatu\");\n            }"
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 1042
+      endSourceChar: 1046
+      line: 31
+      lineChar: 13
+      spanCodeSection: else
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 1046
+      endSourceChar: 1064
+      line: 31
+      lineChar: 17
+      spanCodeSection: "{\n                "
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 1064
+      endSourceChar: 1064
+      line: 32
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 1064
+      endSourceChar: 1064
+      line: 32
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 1064
+      endSourceChar: 1087
+      line: 32
+      lineChar: 16
+      spanCodeSection: SendCustomNetworkEvent(
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 1087
+      endSourceChar: 1087
+      line: 32
+      lineChar: 39
+      spanCodeSection: 
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 1087
+      endSourceChar: 1087
+      line: 32
+      lineChar: 39
+      spanCodeSection: 
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 1087
+      endSourceChar: 1087
+      line: 32
+      lineChar: 39
+      spanCodeSection: 
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 1087
+      endSourceChar: 1087
+      line: 32
+      lineChar: 39
+      spanCodeSection: 
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 1087
+      endSourceChar: 1087
+      line: 32
+      lineChar: 39
+      spanCodeSection: 
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 1087
+      endSourceChar: 1091
+      line: 32
+      lineChar: 39
+      spanCodeSection: VRC.
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 1091
+      endSourceChar: 1096
+      line: 32
+      lineChar: 43
+      spanCodeSection: Udon.
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 1096
+      endSourceChar: 1103
+      line: 32
+      lineChar: 48
+      spanCodeSection: Common.
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 1103
+      endSourceChar: 1114
+      line: 32
+      lineChar: 55
+      spanCodeSection: Interfaces.
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 1114
+      endSourceChar: 1133
+      line: 32
+      lineChar: 66
+      spanCodeSection: NetworkEventTarget.
+    - startInstruction: 520
+      endInstruction: 519
+      startSourceChar: 1133
+      endSourceChar: 1138
+      line: 32
+      lineChar: 85
+      spanCodeSection: 'All, '
+    - startInstruction: 520
+      endInstruction: 571
+      startSourceChar: 1138
+      endSourceChar: 1185
+      line: 32
+      lineChar: 90
+      spanCodeSection: "\"WriteMaru\");\n            }\n        }\n\n        "
+    - startInstruction: 572
+      endInstruction: 579
+      startSourceChar: 1185
+      endSourceChar: 1217
+      line: 36
+      lineChar: 8
+      spanCodeSection: "public void WriteMaru()\n        "
+    - startInstruction: 580
+      endInstruction: 579
+      startSourceChar: 1217
+      endSourceChar: 1231
+      line: 37
+      lineChar: 8
+      spanCodeSection: "{\n            "
+    - startInstruction: 580
+      endInstruction: 579
+      startSourceChar: 1231
+      endSourceChar: 1231
+      line: 38
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 580
+      endInstruction: 579
+      startSourceChar: 1231
+      endSourceChar: 1231
+      line: 38
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 580
+      endInstruction: 579
+      startSourceChar: 1231
+      endSourceChar: 1231
+      line: 38
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 580
+      endInstruction: 579
+      startSourceChar: 1231
+      endSourceChar: 1236
+      line: 38
+      lineChar: 12
+      spanCodeSection: maru.
+    - startInstruction: 580
+      endInstruction: 579
+      startSourceChar: 1236
+      endSourceChar: 1246
+      line: 38
+      lineChar: 17
+      spanCodeSection: SetActive(
+    - startInstruction: 580
+      endInstruction: 623
+      startSourceChar: 1246
+      endSourceChar: 1272
+      line: 38
+      lineChar: 27
+      spanCodeSection: "true);\n        }\n\n        "
+    - startInstruction: 624
+      endInstruction: 631
+      startSourceChar: 1272
+      endSourceChar: 1304
+      line: 41
+      lineChar: 8
+      spanCodeSection: "public void WriteBatu()\n        "
+    - startInstruction: 632
+      endInstruction: 631
+      startSourceChar: 1304
+      endSourceChar: 1318
+      line: 42
+      lineChar: 8
+      spanCodeSection: "{\n            "
+    - startInstruction: 632
+      endInstruction: 631
+      startSourceChar: 1318
+      endSourceChar: 1318
+      line: 43
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 632
+      endInstruction: 631
+      startSourceChar: 1318
+      endSourceChar: 1318
+      line: 43
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 632
+      endInstruction: 631
+      startSourceChar: 1318
+      endSourceChar: 1318
+      line: 43
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 632
+      endInstruction: 631
+      startSourceChar: 1318
+      endSourceChar: 1323
+      line: 43
+      lineChar: 12
+      spanCodeSection: batu.
+    - startInstruction: 632
+      endInstruction: 631
+      startSourceChar: 1323
+      endSourceChar: 1333
+      line: 43
+      lineChar: 17
+      spanCodeSection: SetActive(
+    - startInstruction: 632
+      endInstruction: 632
+      startSourceChar: 1333
+      endSourceChar: 1333
+      line: 43
+      lineChar: 27
+      spanCodeSection: 
+  hasInteractEvent: 1
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: fieldDefinitions
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UdonSharp.FieldDefinition,
+        UdonSharp.Editor]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: maru
+    - Name: $v
+      Entry: 7
+      Data: 2|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 3|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 7
+      Data: 4|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: UnityEngine.GameObject, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: UnityEngineGameObject
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: maru
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: maru
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 6|UnityEngine.SerializeField, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: batu
+    - Name: $v
+      Entry: 7
+      Data: 7|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 8|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 9
+      Data: 4
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: UnityEngineGameObject
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: batu
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: batu
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 9|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 10|UnityEngine.SerializeField, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: parent
+    - Name: $v
+      Entry: 7
+      Data: 11|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 12|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 7
+      Data: 13|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: VRC.Udon.UdonBehaviour, VRC.Udon
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: VRCUdonUdonBehaviour
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: parent
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: parent
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 14|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 15|UnityEngine.SerializeField, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
