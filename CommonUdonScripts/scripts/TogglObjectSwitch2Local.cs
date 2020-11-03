@@ -6,41 +6,30 @@ using VRC.SDK3.Components;
 
 namespace aki_lua87.UdonScripts.Common
 {
-// ON/OFFのInteractを発火させるオブジェクトが変更されるケース
+    // ON/OFFのInteractを発火させるオブジェクトが変更されるケース
     [AddComponentMenu("aki_lua87/UdonScripts/TogglObjectSwitch2Local")]
     public class TogglObjectSwitch2Local : UdonSharpBehaviour
     {
         private bool isSwitchedOn = false;
-        [SerializeField] private GameObject TargetObject;
+        [SerializeField] private GameObject[] TargetObject;
         [SerializeField] private GameObject ON_Swittch;
         [SerializeField] private GameObject OFF_Switch;
 
         public override void Interact()
         {
-            if(isSwitchedOn)
-            {
-                SwitchOFF();
-            }else{
-                SwitchON();
-            }
+            PushSwitch();
         }
 
         // 対象のオブジェクトをトグル、ONスイッチを非表示 OFFスイッチを表示
-        private void SwitchON()
+        private void PushSwitch()
         {
-            TargetObject.SetActive(!TargetObject.activeSelf);
-            ON_Swittch.SetActive(false);
-            OFF_Switch.SetActive(true);
-            isSwitchedOn = true;
-        }
-
-        // 対象のオブジェクトをトグル、ONスイッチを表示 OFFスイッチを非表示
-        private void SwitchOFF()
-        {
-            TargetObject.SetActive(!TargetObject.activeSelf);
-            ON_Swittch.SetActive(true);
-            OFF_Switch.SetActive(false);
-            isSwitchedOn = false;
+            for (var i = 0; i < TargetObject.Length; i++)
+            {
+                TargetObject[i].SetActive(!TargetObject[i].activeSelf);
+            }
+            ON_Swittch.SetActive(!ON_Swittch.activeSelf);
+            OFF_Switch.SetActive(!OFF_Switch.activeSelf);
+            isSwitchedOn = !isSwitchedOn;
         }
     }
 }

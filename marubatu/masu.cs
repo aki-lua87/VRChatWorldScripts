@@ -22,11 +22,11 @@ namespace aki_lua87.UdonScripts.marubatu
                 // ゲーム終了してたら書けないように
                 return;
             }
-            parent.SendCustomEvent("NextFigure");
+            
             var isFigureMaru = (bool) parent.GetProgramVariable("isFigureMaru");
 
             // 描写
-            if(isFigureMaru){
+            if(!isFigureMaru){
                 SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "WriteMaru");
             }else{
                 SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "WriteBatu");
@@ -35,12 +35,14 @@ namespace aki_lua87.UdonScripts.marubatu
 
         public void WriteMaru()
         {
+            parent.SendCustomEvent("NextFigure");
             maru.SetActive(true);
             parent.SendCustomEvent("GameEndCheck");
         }
 
         public void WriteBatu()
         {
+            parent.SendCustomEvent("NextFigure");
             batu.SetActive(true);
             parent.SendCustomEvent("GameEndCheck");
         }

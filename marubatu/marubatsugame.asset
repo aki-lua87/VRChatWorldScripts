@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: marubatsugame
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 73df69073953c7f43b3c4c5d4bb0bbf3,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 9011fa44089a4a745a6d09de0c9579f1,
     type: 2}
   udonAssembly: ".data_start\n\n    .export headerMaru\n    .export headerBatu\n    .export
     endText\n    .export maru\n    .export batu\n\n    __refl_const_intnl_udonTypeID:

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: RotationObject
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 50265b58ff4b7de45835dd5665899366,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 3fc7acb47a8096d4db2f5f19d2517a77,
     type: 2}
   udonAssembly: ".data_start\n\n    .export RotateSpeedX\n    .export RotateSpeedY\n
     \   .export RotateSpeedZ\n\n    __refl_const_intnl_udonTypeID: %SystemInt64, null\n

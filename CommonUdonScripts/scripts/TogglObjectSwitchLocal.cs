@@ -10,11 +10,14 @@ namespace aki_lua87.UdonScripts.Common
     [AddComponentMenu("aki_lua87/UdonScripts/TogglObjectSwitchLocal")]
     public class TogglObjectSwitchLocal : UdonSharpBehaviour
     {
-        [SerializeField] private GameObject TargetObject;
+        [SerializeField] private GameObject[] TargetObject;
 
         public override void Interact()
         {
-            TargetObject.SetActive(!TargetObject.activeSelf);
+            for(var i = 0; i<TargetObject.Length; i++)
+            {
+                TargetObject[i].SetActive(!TargetObject[i].activeSelf);
+            }
         }
     }
 }

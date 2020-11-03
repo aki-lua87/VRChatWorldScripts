@@ -12,8 +12,8 @@ namespace aki_lua87.UdonScripts.Common
         // デフォルトは電気がついている状態
         private bool isSwitchedOn = true;
         [SerializeField] private Light Light;
-        [SerializeField] private float LightONIntensity; // ex. 0.06
-        [SerializeField] private float LightOFFIntensity; // ex. 0.4
+        [SerializeField] private float LightONIntensity; // e.g. 0.06
+        [SerializeField] private float LightOFFIntensity; // e.g. 0.4
         [SerializeField] private GameObject ON_Swittch;
         [SerializeField] private GameObject OFF_Switch;
         public override void Interact()

@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
-  m_Name: reset
+  m_Name: Reset
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 0c8ec40b49b185f468bf66e30908ee20,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 6e1f2e4c8dcb3bc4e97e007fc3cea0e0,
     type: 2}
-  udonAssembly: ".data_start\n\n    .export parent\n\n    __refl_const_intnl_udonTypeID:
+  udonAssembly: ".data_start\n\n    .export gameManager\n\n    __refl_const_intnl_udonTypeID:
     %SystemInt64, null\n    __refl_const_intnl_udonTypeName: %SystemString, null\n
-    \   parent: %VRCUdonUdonBehaviour, null\n    __0_const_intnl_SystemString: %SystemString,
-    null\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\n    __0_intnl_returnTarget_UInt32:
-    %SystemUInt32, null\n\n.data_end\n\n        \n         # using UdonSharp;\n        \n
-    \        # using UnityEngine;\n        \n         # using VRC.SDKBase;\n        \n
-    \        # using VRC.Udon;\n        \n         # namespace aki_lua87.UdonScripts.marubatu\n
-    \       \n         # public class reset : UdonSharpBehaviour\n.code_start\n        \n
-    \        # [SerializeField] private UdonBehaviour parent;\n        \n         #
-    public override void Interact()\n    .export _interact\n        \n    _interact:\n
-    \       \n        PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n
-    \       \n         # parent.SendCustomEvent(\"ResetGame\");\n        PUSH, parent\n
-    \       PUSH, __0_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \   gameManager: %VRCUdonUdonBehaviour, null\n    __0_const_intnl_SystemUInt32:
+    %SystemUInt32, null\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\n\n.data_end\n\n
+    \       \n         # using UdonSharp;\n        \n         # using UnityEngine;\n
+    \       \n         # using VRC.SDKBase;\n        \n         # using VRC.Udon;\n
+    \       \n         # namespace aki_lua87.UdonScripts.insider\n        \n         #
+    public class Reset : UdonSharpBehaviour\n.code_start\n        \n         # [SerializeField]
+    private UdonBehaviour gameManager;\n        \n         # void Interact()\n    .export
+    _interact\n        \n    _interact:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # gameManager.SendCustomEvent(\"Reset\");\n
+    \       PUSH, gameManager\n        PUSH, __refl_const_intnl_udonTypeName\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n.code_end\n"
   assemblyError: 
-  sourceCsScript: {fileID: 11500000, guid: eb0386af3c49855498a681220726a717, type: 3}
+  sourceCsScript: {fileID: 11500000, guid: 543a47e496dc4bd489fc3fdb0326d555, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
   compileErrors: []
   debugInfo:
@@ -136,128 +136,128 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 77
-      endSourceChar: 126
+      endSourceChar: 125
       line: 5
       lineChar: 0
-      spanCodeSection: "namespace aki_lua87.UdonScripts.marubatu\r\n{\r\n    "
+      spanCodeSection: "namespace aki_lua87.UdonScripts.insider\r\n{\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 126
-      endSourceChar: 145
+      startSourceChar: 125
+      endSourceChar: 144
       line: 7
       lineChar: 4
-      spanCodeSection: 'public class reset '
+      spanCodeSection: 'public class Reset '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 145
-      endSourceChar: 147
+      startSourceChar: 144
+      endSourceChar: 146
       line: 7
       lineChar: 23
       spanCodeSection: ': '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 147
-      endSourceChar: 147
+      startSourceChar: 146
+      endSourceChar: 146
       line: 7
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 147
-      endSourceChar: 182
+      startSourceChar: 146
+      endSourceChar: 181
       line: 7
       lineChar: 25
       spanCodeSection: "UdonSharpBehaviour\r\n    {\r\n        "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 182
-      endSourceChar: 183
+      startSourceChar: 181
+      endSourceChar: 182
       line: 9
       lineChar: 8
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 183
-      endSourceChar: 183
+      startSourceChar: 182
+      endSourceChar: 182
       line: 9
       lineChar: 9
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 183
-      endSourceChar: 207
+      startSourceChar: 182
+      endSourceChar: 206
       line: 9
       lineChar: 9
       spanCodeSection: 'SerializeField] private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 207
-      endSourceChar: 207
+      startSourceChar: 206
+      endSourceChar: 206
       line: 9
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 207
-      endSourceChar: 238
+      startSourceChar: 206
+      endSourceChar: 244
       line: 9
       lineChar: 33
-      spanCodeSection: "UdonBehaviour parent;\r\n        "
+      spanCodeSection: "UdonBehaviour gameManager;\r\n\r\n        "
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 238
-      endSourceChar: 279
-      line: 10
+      startSourceChar: 244
+      endSourceChar: 269
+      line: 11
       lineChar: 8
-      spanCodeSection: "public override void Interact()\r\n        "
+      spanCodeSection: "void Interact()\r\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 279
-      endSourceChar: 294
-      line: 11
+      startSourceChar: 269
+      endSourceChar: 284
+      line: 12
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 294
-      endSourceChar: 294
-      line: 12
+      startSourceChar: 284
+      endSourceChar: 284
+      line: 13
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 294
-      endSourceChar: 294
-      line: 12
+      startSourceChar: 284
+      endSourceChar: 284
+      line: 13
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 294
-      endSourceChar: 294
-      line: 12
+      startSourceChar: 284
+      endSourceChar: 284
+      line: 13
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 294
-      endSourceChar: 301
-      line: 12
+      startSourceChar: 284
+      endSourceChar: 296
+      line: 13
       lineChar: 12
-      spanCodeSection: parent.
+      spanCodeSection: gameManager.
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 301
-      endSourceChar: 317
-      line: 12
-      lineChar: 19
+      startSourceChar: 296
+      endSourceChar: 312
+      line: 13
+      lineChar: 24
       spanCodeSection: SendCustomEvent(
     - startInstruction: 8
       endInstruction: 8
-      startSourceChar: 317
-      endSourceChar: 317
-      line: 12
-      lineChar: 35
+      startSourceChar: 312
+      endSourceChar: 312
+      line: 13
+      lineChar: 40
       spanCodeSection: 
   hasInteractEvent: 1
   serializationData:
@@ -288,7 +288,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: parent
+      Data: gameManager
     - Name: $v
       Entry: 7
       Data: 2|UdonSharp.FieldDefinition, UdonSharp.Editor
@@ -315,10 +315,10 @@ MonoBehaviour:
       Data: VRCUdonUdonBehaviour
     - Name: symbolOriginalName
       Entry: 1
-      Data: parent
+      Data: gameManager
     - Name: symbolUniqueName
       Entry: 1
-      Data: parent
+      Data: gameManager
     - Name: symbolDefaultValue
       Entry: 6
       Data: 
